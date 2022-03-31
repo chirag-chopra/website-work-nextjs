@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PageHelmet from "../component/common/Helmet";
 import ModalVideo from 'react-modal-video';
 import { FiClock , FiUser , FiMessageCircle , FiHeart } from "react-icons/fi";
-import { Link } from 'react-router-dom';
+import  Link  from 'next/link';
 import ScrollToTop from 'react-scroll-up';
 import { FiChevronUp } from "react-icons/fi";
 import Header from "../component/header/Header";
@@ -132,7 +132,7 @@ class BlogDetails extends Component{
                                             <div className="col-lg-12">
                                                 <div className="blog-btn">
                                                     {/* <a className="rn-button-style--2 btn-solid" href="#"></a> */}
-                                                    <Link className="rn-button-style--2 btn-solid" to="/blog-details"><span>SEND MESSAGE</span></Link>
+                                                    <Link className="rn-button-style--2 btn-solid" href="/blog-details"><span>SEND MESSAGE</span></Link>
                                                 </div>
                                             </div>
                                         </div>

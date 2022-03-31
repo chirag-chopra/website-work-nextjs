@@ -95,48 +95,27 @@ class Header extends Component{
                                         <li><Link href="/interactive-agency">Interactive Agency</Link></li>
                                     </ul> */}
                                 </li>
-                                <li className="has-droupdown"><Link href="/service" >Service</Link>
+                                <li className="has-droupdown"><Link href="/mainDemo" >Api Service</Link>
                                     <ul className="submenu">
-                                        <li><Link href="/service">Service</Link></li>
-                                        <li><Link href="/service-details">Service Details</Link></li>
+                                        <li><Link href="#">Astrology API</Link></li>
                                     </ul>
                                 </li>
-                                <li><Link href="/about" >About</Link></li>
-
-                                <li className="has-droupdown"><Link href="#pages" >Pages</Link>
+                                <li className="has-droupdown"><Link href="/mainDemo">Our Products</Link>
                                     <ul className="submenu">
-                                        <li><Link href="/blog">Blog List</Link></li>
-                                        <li><Link href="/blog-details">Blog Details</Link></li>
-                                        <li><Link href="/service">Service</Link></li>
-                                        <li><Link href="/service-details">Service Details</Link></li>
-                                        <li><Link href="/portfolio">Portfolio</Link></li>
-                                        <li><Link href="/portfolio-details">Portfolio Details</Link></li>
-                                        <li><Link href="/404">404</Link></li>
+                                        <li><Link href="#">Learn MLM</Link></li>
+                                        <li><Link href="#">GeoTaskie</Link></li>
+                                        <li><Link href="#">AstroSelf</Link></li>
                                     </ul>
                                 </li>
-                                <li className="has-droupdown"><Link href="#" >Blocks</Link>
-                                    <ul className="submenu">
-                                        <li><Link href="/portfolio">Portfolio</Link></li>
-                                        <li><Link href="/team">Team</Link></li>
-                                        <li><Link href="/service">Service</Link></li>
-                                        <li><Link href="/video-popup">Video Popup</Link></li>
-                                        <li><Link href="/progressbar">Progressbar</Link></li>
-                                        <li><Link href="/gallery">Gallery</Link></li>
-                                        <li><Link href="/counters">Counters</Link></li>
-                                        <li><Link href="/blog">Blog List</Link></li>
-                                        <li><Link href="/clint-logo">Clint Logo</Link></li>
-                                        <li><Link href="/contact-form">Contact Form</Link></li>
-                                        <li><Link href="/google-map">Google Map</Link></li>
-                                        <li><Link href="/columns">Columns</Link></li>
-                                        <li><Link href="/pricing-table">Pricing Table</Link></li>
-                                    </ul>
+                                <li className="has-droupdown"><Link href="/all-blogs"><a>Blogs</a></Link>
                                 </li>
-                                <li><Link href="/contact" >Contact</Link></li>
+                                <li><Link href="/about-us" >About</Link></li>
+                                <li><Link href="/contact-us" >Contact</Link></li>
                             </ul>
                         </nav>
                         <div className="header-btn">
                             <a className="rn-btn" href="https://themeforest.net/checkout/from_item/25457315?license=regular">
-                                <span>buy now</span>
+                                <span>Sign In</span>
                             </a>
                         </div>
                         {/* Start Humberger Menu  */}
