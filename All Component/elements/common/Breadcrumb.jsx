@@ -5,7 +5,7 @@ class Breadcrumb extends Component{
     render(){
         const { title , parent} = this.props;
         return(
-            <React.Fragment>
+            <>
                 <div className="breadcrumb-area rn-bg-color ptb--120 bg_image bg_image--1" data-black-overlay="6">
                     <div className="container">
                         <div className="row">
@@ -22,7 +22,7 @@ class Breadcrumb extends Component{
                         </div>
                     </div>
                 </div>
-            </React.Fragment>
+            </>
         )
     }
 }

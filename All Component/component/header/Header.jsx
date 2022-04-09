@@ -95,12 +95,12 @@ class Header extends Component{
                                         <li><Link href="/interactive-agency">Interactive Agency</Link></li>
                                     </ul> */}
                                 </li>
-                                <li className="has-droupdown"><Link href="/mainDemo" >Api Service</Link>
+                                <li className="has-droupdown"><Link href="/api-services" >Api Services</Link>
                                     <ul className="submenu">
                                         <li><Link href="#">Astrology API</Link></li>
                                     </ul>
                                 </li>
-                                <li className="has-droupdown"><Link href="/mainDemo">Our Products</Link>
+                                <li className="has-droupdown"><Link href="/our-products">Our Products</Link>
                                     <ul className="submenu">
                                         <li><Link href="#">Learn MLM</Link></li>
                                         <li><Link href="#">GeoTaskie</Link></li>

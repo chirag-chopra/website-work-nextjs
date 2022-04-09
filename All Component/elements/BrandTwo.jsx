@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class BrandTwo extends Component{
     render(){
         return(
-            <React.Fragment>
+            <>
                 <ul className="brand-style-2">
                     <li>
                         <img src="/assets/images/brand/brand-01.png" alt="Logo Images"/>
@@ -33,7 +33,7 @@ class BrandTwo extends Component{
                         <img src="/assets/images/brand/brand-04.png" alt="Logo Images"/>
                     </li>
                 </ul>
-            </React.Fragment>
+            </>
         )
     }
 }

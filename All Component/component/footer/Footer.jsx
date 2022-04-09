@@ -11,7 +11,7 @@ const SocialShare = [
 class Footer extends Component{
     render(){
         return(
-            <React.Fragment>
+            <>
                 <footer className="footer-area">
                     <div className="footer-wrapper">
                         <div className="row align-items-end row--0">
@@ -72,7 +72,7 @@ class Footer extends Component{
                         </div>
                     </div>
                 </footer>
-            </React.Fragment>
+            </>
         )
     }
 }

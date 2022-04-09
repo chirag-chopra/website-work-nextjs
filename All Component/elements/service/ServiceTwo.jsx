@@ -29,7 +29,7 @@ class ServiceTwo extends Component{
         let title = 'Services',
         description = 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration.';
         return(
-            <React.Fragment>
+            <>
                 <div className="row">
                     <div className="col-lg-4 col-12">
                         <div className="section-title mt--30 mt_md--5 mt_mobile--5 mb_mobile--10">
@@ -60,7 +60,7 @@ class ServiceTwo extends Component{
                         </div>
                     </div>
                 </div>
-            </React.Fragment>
+            </>
         )
     }
 }

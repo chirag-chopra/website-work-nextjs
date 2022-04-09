@@ -21,7 +21,7 @@ const ServiceList = [
 class ServiceOne extends Component{
     render(){
         return(
-            <React.Fragment>
+            <>
                 <div className="row">
                     {ServiceList.map( (val , i) => (
                         <div className="col-lg-4 col-md-6 col-sm-6 col-12" key={i}>
@@ -37,7 +37,7 @@ class ServiceOne extends Component{
                         </div>
                     ))}
                 </div>
-            </React.Fragment>
+            </>
         )
     }
 }

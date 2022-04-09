@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PageHelmet from "../component/common/Helmet";
 import { FiHeadphones , FiMail , FiMapPin } from "react-icons/fi";
+// import GoogleMapReact from 'google-map-react';
 import ContactTwo from "../elements/contact/ContactTwo";
 import BrandTwo from "../elements/BrandTwo";
 import ScrollToTop from 'react-scroll-up';
@@ -21,7 +22,7 @@ class Contact extends Component{
 
     render(){
         return(
-            <React.Fragment>
+            <>
                 <PageHelmet pageTitle='Contact' />
 
                 <Header headertransparent="header--transparent" colorblack="color--black" logoname="logo.png" />
@@ -102,7 +103,22 @@ class Contact extends Component{
                 </div>
                 {/* End Contact Page Area  */}
 
-              
+                {/* Start Contact Map  */}
+                {/* <div className="rn-contact-map-area position-relative">
+                    <div style={{ height: '650px', width: '100%' }}>
+                        <GoogleMapReact
+                        defaultCenter={this.props.center}
+                        defaultZoom={this.props.zoom}
+                        >
+                        <AnyReactComponent
+                            lat={59.955413}
+                            lng={30.337844}
+                            text="My Marker"
+                        />
+                        </GoogleMapReact>
+                    </div>
+                </div> */}
+                {/* End Contact Map  */}
                 
 
                 {/* Start Brand Area */}
@@ -127,7 +143,7 @@ class Contact extends Component{
                 
                 <Footer />
                 
-            </React.Fragment>
+            </>
         )
     }
 }

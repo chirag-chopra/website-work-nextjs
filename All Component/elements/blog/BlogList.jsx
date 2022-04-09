@@ -1,11 +1,11 @@
-import React, { Component ,Fragment } from "react";
+import React, { Component  } from "react";
 import BlogContent from "./BlogContent";
 
 class BLogList extends Component{
     render() {
         const PostList = BlogContent.slice(0 , 6);
         return (
-             <Fragment>
+             <>
                  <div className="row">
                     {PostList.map((value , i ) => (
                         <div className="col-lg-4 col-md-6 col-sm-6 col-12" key={i}>
@@ -26,7 +26,7 @@ class BLogList extends Component{
                         </div>
                      ))}
                  </div>
-             </Fragment>
+             </>
         );
     }
 }

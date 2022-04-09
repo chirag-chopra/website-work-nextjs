@@ -3,7 +3,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 class Testimonial extends Component{
     render(){
         return(
-            <React.Fragment>
+            <>
                 <div className="row">
                     <div className="col-lg-12">
                         <Tabs>
@@ -153,7 +153,7 @@ class Testimonial extends Component{
                         </Tabs>
                     </div>
                 </div>
-            </React.Fragment>
+            </>
         )
     }
 }

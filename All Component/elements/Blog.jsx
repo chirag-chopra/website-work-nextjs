@@ -11,7 +11,7 @@ import Footer from "../component/footer/Footer";
 class Blog extends Component{
     render(){
         return(
-            <React.Fragment>
+            <>
                 <PageHelmet pageTitle='Blog' />
 
                 <Header headertransparent="header--transparent" colorblack="color--black" logoname="logo.png" />
@@ -45,7 +45,7 @@ class Blog extends Component{
                 
                 <Footer /> 
 
-            </React.Fragment>
+            </>
         )
     }
 }

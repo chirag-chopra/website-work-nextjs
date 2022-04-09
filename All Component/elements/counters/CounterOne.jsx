@@ -1,4 +1,4 @@
-import React, { Component , Fragment } from "react";
+import React, { Component  } from "react";
 import CountUp from 'react-countup';
 import VisibilitySensor from 'react-visibility-sensor';
 
@@ -31,7 +31,7 @@ class CounterOne extends Component{
         ];
 
         return(
-            <Fragment>
+            <>
                 <div className="row">
                     {Data.map( (value, index) => (
                         <div className="counterup_style--1 col-lg-4 col-md-4 col-sm-6 col-12" key={index}>
@@ -44,7 +44,7 @@ class CounterOne extends Component{
                         </div>
                     ))}
                 </div>
-            </Fragment>
+            </>
         )
     }
 }

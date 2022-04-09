@@ -42,7 +42,7 @@ class Portfolio extends Component{
         let title = 'Our Works',
         description = 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration.';
         return(
-            <React.Fragment>
+            <>
                 <div className="portfolio-wrapper">
                     <div className="container">
                         <div className="row">
@@ -77,7 +77,7 @@ class Portfolio extends Component{
                         </Slider>
                     </div>
                 </div>
-            </React.Fragment>
+            </>
         )
     }
 }
