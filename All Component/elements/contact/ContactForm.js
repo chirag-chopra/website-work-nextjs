@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import emailjs from 'emailjs-com';
 
 const Result = () => {
     return (
@@ -10,23 +9,7 @@ function ContactForm({ props }) {
     const [result, showresult] = useState(false);
 
     const sendEmail = (e) => {
-        e.preventDefault();
-        emailjs
-            .sendForm(
-                'service_p4x3hv8',
-                'template_jgfr42f',
-                e.target,
-                'user_jrfTH2e0Ely35ZCVFdT9S'
-            )
-            .then((result) => {
-                console.log(result.text);
-            },
-                (error) => {
-                    console.log(error.text);
-                }
-            );
-        e.target.reset();
-        showresult(true);
+
     };
 
     setTimeout(() => {

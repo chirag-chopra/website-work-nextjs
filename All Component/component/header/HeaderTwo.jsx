@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { FiX, FiMenu } from "react-icons/fi";
 
 // import "../../../public/assets"
-class Header extends Component {
+class HeaderTwo extends Component {
     constructor(props) {
         super(props);
         this.menuTrigger = this.menuTrigger.bind(this);
@@ -62,7 +62,7 @@ class Header extends Component {
 
 
         return (
-            <header className={`header-area formobile-menu header--transparent ${color}`}>
+            <header style={{ backgroundColor: '#00010c', position: "relative !important" }} className={`header-area-new formobile-menu header--transparent ${color} mb-3`}>
                 <div className="header-wrapper" id="header-wrapper">
                     <div className="header-left">
                         <div className="logo">
@@ -132,4 +132,4 @@ class Header extends Component {
         )
     }
 }
-export default Header;
+export default HeaderTwo;
