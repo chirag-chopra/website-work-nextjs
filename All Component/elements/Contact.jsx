@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 import PageHelmet from "../component/common/Helmet";
-import { FiHeadphones , FiMail , FiMapPin } from "react-icons/fi";
+import { FiHeadphones, FiMail, FiMapPin, FiChevronUp } from "react-icons/fi";
 // import GoogleMapReact from 'google-map-react';
-import ContactTwo from "../elements/contact/ContactTwo";
+import ContactOne from "../elements/contact/ContactOne";
 import BrandTwo from "../elements/BrandTwo";
 import ScrollToTop from 'react-scroll-up';
-import { FiChevronUp } from "react-icons/fi";
+// import { FiChevronUp } from "react-icons/fi";
 import Header from "../component/header/Header";
 import Footer from "../component/footer/Footer";
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
-class Contact extends Component{
+class Contact extends Component {
     static defaultProps = {
         center: {
             lat: 59.95,
@@ -20,15 +20,15 @@ class Contact extends Component{
         zoom: 11
     };
 
-    render(){
-        return(
+    render() {
+        return (
             <>
                 <PageHelmet pageTitle='Contact' />
 
                 <Header headertransparent="header--transparent" colorblack="color--black" logoname="logo.png" />
 
-                 {/* Start Breadcrump Area */}
-                 <div className="rn-page-title-area pt--120 pb--190 bg_image bg_image--17"  data-black-overlay="6">
+                {/* Start Breadcrump Area */}
+                <div className="rn-page-title-area pt--120 pb--190 bg_image bg_image--17" data-black-overlay="6">
                     <div className="container">
                         <div className="row">
                             <div className="col-lg-12">
@@ -46,7 +46,7 @@ class Contact extends Component{
                 {/* Start Contact Top Area  */}
                 <div className="rn-contact-top-area ptb--120 bg_color--5">
                     <div className="container">
-                       
+
                         <div className="row">
                             {/* Start Single Address  */}
                             <div className="col-lg-4 col-md-6 col-sm-6 col-12">
@@ -99,7 +99,7 @@ class Contact extends Component{
 
                 {/* Start Contact Page Area  */}
                 <div className="rn-contact-page ptb--120 bg_color--1">
-                    <ContactTwo />
+                    <ContactOne />
                 </div>
                 {/* End Contact Page Area  */}
 
@@ -107,19 +107,19 @@ class Contact extends Component{
                 {/* <div className="rn-contact-map-area position-relative">
                     <div style={{ height: '650px', width: '100%' }}>
                         <GoogleMapReact
-                        defaultCenter={this.props.center}
-                        defaultZoom={this.props.zoom}
+                            defaultCenter={this.props.center}
+                            defaultZoom={this.props.zoom}
                         >
-                        <AnyReactComponent
-                            lat={59.955413}
-                            lng={30.337844}
-                            text="My Marker"
-                        />
+                            <AnyReactComponent
+                                lat={59.955413}
+                                lng={30.337844}
+                                text="My Marker"
+                            />
                         </GoogleMapReact>
                     </div>
                 </div> */}
                 {/* End Contact Map  */}
-                
+
 
                 {/* Start Brand Area */}
                 <div className="rn-brand-area brand-separation bg_color--5 ptb--120">
@@ -140,9 +140,9 @@ class Contact extends Component{
                     </ScrollToTop>
                 </div>
                 {/* End Back To Top */}
-                
+
                 <Footer />
-                
+
             </>
         )
     }
