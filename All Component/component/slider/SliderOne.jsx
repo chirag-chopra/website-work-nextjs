@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import ServiceOne from "../../elements/service/ServiceOne";
 
-class SliderOne extends Component {
-  render() {
+const SliderOne = () => {
+
     return (
         <div className="slider-activation">
             {/* Start Single Slide */}
@@ -21,10 +21,10 @@ class SliderOne extends Component {
                     </div>
                     {/* End Service Area */}
                 </div>
-            </div> 
+            </div>
             {/* End Single Slide */}
         </div>
     );
-  }
+
 }
 export default SliderOne;
