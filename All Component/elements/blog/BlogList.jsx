@@ -1,7 +1,8 @@
-import BlogContent from "./BlogContent";
+import Link from "next/link";
 
-const BLogList = () => {
-  const PostList = BlogContent.slice(0, 6);
+const BLogList = (props) => {
+  console.log(props)
+  const PostList = props.blog
   return (
     <div className="row">
       {PostList.map((value, i) => (
@@ -22,9 +23,9 @@ const BLogList = () => {
                 <a href="/blog-details">{value.title}</a>
               </h4>
               <div className="blog-btn">
-                <a className="rn-btn text-white" href="/blog-details">
-                  Read More
-                </a>
+
+                <button className="btn btn-light"><Link className="rn-btn text-white" href={"/blogdetails/" + value.title} >Read More</Link></button>
+
               </div>
             </div>
           </div>

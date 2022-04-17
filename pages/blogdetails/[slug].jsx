@@ -1,16 +1,17 @@
 import React, { useState } from "react";
-import PageHelmet from "../All Component/component/common/Helmet";
+import PageHelmet from "../../All Component/component/common/Helmet";
 import ModalVideo from 'react-modal-video';
 import { FiClock, FiUser, FiMessageCircle, FiHeart } from "react-icons/fi";
 import Link from 'next/link';
 import ScrollToTop from 'react-scroll-up';
 import { FiChevronUp } from "react-icons/fi";
-import Header from "../All Component/component/header/Header";
-import Footer from "../All Component/component/footer/Footer";
+import Header from "../../All Component/component/header/Header";
+import Footer from "../../All Component/component/footer/Footer";
 
-const BlogDetails = () => {
+const BlogDetails = (props) => {
+    console.log(props, "check")
     const [isOpen, setIsOpen] = useState(false)
-
+    const singleBlog = props.oneBlog
     const openModal = () => {
         setIsOpen(true)
     }
@@ -25,7 +26,7 @@ const BlogDetails = () => {
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="blog-single-page-title text-center pt--100">
-                                <h2 className="title theme-gradient">The Home of the Future <br /> Could Bebes</h2>
+                                <h2 className="title theme-gradient">{singleBlog.title}</h2>
                                 <ul className="blog-meta d-flex justify-content-center align-items-center">
                                     <li><FiClock />May 18, 2020</li>
                                     <li><FiUser />NipaBali</li>
@@ -150,5 +151,14 @@ const BlogDetails = () => {
 
         </>
     )
+}
+
+export async function getServerSideProps(context) {
+    console.log(context.query.slug)
+    const data = await fetch(`http://localhost:3000/api/getBlog?slug=${context.query.slug}`)
+    const oneBlog = await data.json();
+    return {
+        props: { oneBlog }, // will be passed to the page component as props
+    }
 }
 export default BlogDetails;

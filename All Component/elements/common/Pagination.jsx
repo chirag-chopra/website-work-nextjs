@@ -6,19 +6,19 @@ const Pagination = () => {
     <div className="rn-pagination text-center">
       <ul className="page-list">
         <li className="active">
-          <Link href="#">1</Link>
+          <Link href="#" >1</Link>
         </li>
         <li>
-          <Link href="#">2</Link>
+          <Link href="#" >2</Link>
         </li>
         <li>
-          <Link href="#">3</Link>
+          <Link href="#" >3</Link>
         </li>
         <li>
-          <Link href="#">4</Link>
+          <Link href="#" >4</Link>
         </li>
         <li>
-          <Link href="#">
+          <Link href="#" >
             <FaAngleRight />
           </Link>
         </li>

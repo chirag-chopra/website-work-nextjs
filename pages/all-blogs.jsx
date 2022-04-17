@@ -8,7 +8,7 @@ import { FiChevronUp } from "react-icons/fi";
 import Header from "../All Component/component/header/Header";
 import Footer from "../All Component/component/footer/Footer";
 
-const Blog = () => {
+const AllBLog = (props) => {
     return (
         <>
             <PageHelmet pageTitle='Blog' />
@@ -22,7 +22,7 @@ const Blog = () => {
             {/* Start Blog Area */}
             <div className="rn-blog-area ptb--120 bg_color--1">
                 <div className="container">
-                    <BlogList />
+                    <BlogList blog={props.blogs} />
                     <div className="row mt--20">
                         <div className="col-lg-12">
                             {/* Start Pagination Area */}
@@ -46,6 +46,17 @@ const Blog = () => {
 
         </>
     )
+
 }
 
-export default Blog;
+export const getServerSideProps = async (context) => {
+
+    const data = await fetch("http://localhost:3000/api/blogs")
+    const blogs = await data.json();
+    return {
+        props: { blogs }, // will be passed to the page component as props
+    }
+}
+
+
+export default AllBLog;

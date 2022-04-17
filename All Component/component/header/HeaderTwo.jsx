@@ -9,7 +9,7 @@ class HeaderTwo extends Component {
         this.menuTrigger = this.menuTrigger.bind(this);
         this.CLoseMenuTrigger = this.CLoseMenuTrigger.bind(this);
         //  this.subMetuTrigger = this.subMetuTrigger.bind(this);
-        if (typeof window !== "undefined") {
+        if (typeof window != "undefined") {
             // Client-side-only code
             window.addEventListener('load', function () {
                 console.log('All assets are loaded')
@@ -19,28 +19,29 @@ class HeaderTwo extends Component {
 
 
     menuTrigger() {
-        if (typeof window !== "undefined") {
+        if (typeof window != "undefined") {
             // Client-side-only code
-            document.querySelector('.header-wrapper').classList.toggle('menu-open')
+            window.document.querySelector('.header-wrapper').classList.toggle('menu-open')
         }
     }
 
     CLoseMenuTrigger() {
-        if (typeof window !== "undefined") {
+        if (typeof window != "undefined") {
             // Client-side-only code
-            document.querySelector('.header-wrapper').classList.remove('menu-open');
+            window.document.querySelector('.header-wrapper').classList.remove('menu-open');
         }
     }
 
 
     render() {
-        if (typeof window !== "undefined") {
+        if (typeof window != "undefined") {
             // Client-side-only code
             var elements = document.querySelectorAll('.has-droupdown > a');
         }
         for (var i in elements) {
             if (elements.hasOwnProperty(i)) {
-                elements[i].onclick = function () {
+                elements[i].onClick = function () {
+
                     this.parentElement.querySelector('.submenu').classList.toggle("active");
                     this.classList.toggle("open");
                 }
@@ -74,7 +75,7 @@ class HeaderTwo extends Component {
                     <div className="header-right">
                         <nav className="mainmenunav d-lg-block">
                             <ul className="mainmenu">
-                                <li className="has-droupdown"><Link href="/"><a>Home</a></Link>
+                                <li className="has-droupdown"><Link href="/">Home</Link>
                                     {/* <ul className="submenu">
                                         <li><Link href="/main-demo">Main Demo</Link></li>
                                         <li><Link href="/dark-main-demo">Main Demo Dark</Link></li>
@@ -107,7 +108,7 @@ class HeaderTwo extends Component {
                                         <li><Link href="#">AstroSelf</Link></li>
                                     </ul>
                                 </li>
-                                <li className="has-droupdown"><Link href="/all-blogs"><a>Blogs</a></Link>
+                                <li className="has-droupdown"><Link href="/all-blogs">Blogs</Link>
                                 </li>
                                 <li><Link href="/about-us" >About</Link></li>
                                 <li><Link href="/contact-us" >Contact</Link></li>

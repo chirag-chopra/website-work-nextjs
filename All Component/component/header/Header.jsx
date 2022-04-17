@@ -40,7 +40,7 @@ class Header extends Component {
         }
         for (var i in elements) {
             if (elements.hasOwnProperty(i)) {
-                elements[i].onclick = function () {
+                elements[i].onClick = function () {
                     this.parentElement.querySelector('.submenu').classList.toggle("active");
                     this.classList.toggle("open");
                 }
@@ -49,15 +49,15 @@ class Header extends Component {
         const { logo, color = 'default-color' } = this.props;
         let logoUrl;
         if (logo === 'light') {
-            logoUrl = <img src="assets/images/logo/logo-light.png" alt="Digital Agency" />;
+            logoUrl = <img src="/assets/images/logo/logo-light.png" alt="Digital Agency" />;
         } else if (logo === 'dark') {
-            logoUrl = <img src="assets/images/logo/logo-dark.png" alt="Digital Agency" />;
+            logoUrl = <img src="/assets/images/logo/logo-dark.png" alt="Digital Agency" />;
         } else if (logo === 'symbol-dark') {
-            logoUrl = <img src="assets/images/logo/logo-symbol-dark.png" alt="Digital Agency" />;
+            logoUrl = <img src="/assets/images/logo/logo-symbol-dark.png" alt="Digital Agency" />;
         } else if (logo === 'symbol-light') {
-            logoUrl = <img src="assets/images/logo/logo-symbol-light.png" alt="Digital Agency" />;
+            logoUrl = <img src="/assets/images/logo/logo-symbol-light.png" alt="Digital Agency" />;
         } else {
-            logoUrl = <img src="assets/images/logo/logo.png" alt="Digital Agency" />;
+            logoUrl = <img src="/assets/images/logo/logo.png" alt="Digital Agency" />;
         }
 
 
