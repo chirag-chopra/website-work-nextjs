@@ -2,7 +2,6 @@
   "name": "trydo",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://trydo.rainbowit.net",
   "basename": "/",
   "dependencies": {
     "bootstrap": "^5.1.3",
