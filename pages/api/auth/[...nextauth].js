@@ -2,12 +2,9 @@ import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
 export default NextAuth({
-    // pages: {
-    //     signIn: "/auth/signin",
-    //     signOut: "/auth/signout",
-    //     error: "/auth/error",
-    //     verifyRequest: "/auth/verify-request",
-    // },
+    pages: {
+        signIn: "/login"
+    },
     providers: [
         CredentialsProvider({
             name: "Credentials",
@@ -16,7 +13,16 @@ export default NextAuth({
                 password: { label: "Password", type: "password" },
             },
             authorize: async (credentials, req) => {
+                console.log(credentials, "check")
                 // database look up
+                if (credentials.username === "nikhil@gmail.com" && credentials.password === "123456") {
+                    return {
+                        name: "nikhil"
+                    }
+                }
+                else {
+                    return null
+                }
             },
         }),
     ],

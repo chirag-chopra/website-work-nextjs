@@ -2,6 +2,7 @@ import PageHelmet from "../All Component/component/common/Helmet";
 import Breadcrumb from "../All Component/elements/common/Breadcrumb";
 import HeaderTwo from "../All Component/component/header/HeaderTwo";
 import Link from "next/link";
+import styles from "./login.module.css"
 
 const Register = () => {
   return (
@@ -18,7 +19,7 @@ const Register = () => {
       <div className="container">
         <div className="row justify-content-center mt-3 mb-3">
           <div
-            className="col-xl-4 col-lg-6 col-md-6 col-sm-12"
+            className={`${styles.respon} col-xl-4 col-lg-6 col-md-6 col-sm-12`}
             style={{
               border: "1px solid white",
               borderRadius: "20px 0px 0px 20px",

@@ -1,9 +1,21 @@
 import PageHelmet from "../All Component/component/common/Helmet";
-import Breadcrumb from "../All Component/elements/common/Breadcrumb";
+import { useState } from "react"
 import HeaderTwo from "../All Component/component/header/HeaderTwo";
+import { signIn, csrfToken } from "next-auth/react"
 import Link from "next/link";
+import styles from "./login.module.css"
 
 const Login = () => {
+
+  const [userEmail, setUserEmail] = useState('');
+  const [userPassword, setUserPassword] = useState('');
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    console.log(userEmail, userPassword)
+    await signIn('credentials', { username: userEmail, password: userPassword, callbackUrl: `${window.location.origin}/` });
+  }
+
   return (
     <>
       <PageHelmet pageTitle="Login" />
@@ -18,7 +30,7 @@ const Login = () => {
       <div className="container">
         <div className="row justify-content-center mt-3 mb-3">
           <div
-            className="col-xl-4 col-lg-6 col-md-6 col-sm-12"
+            className={`${styles.respon} col-xl-6 col-lg-6 col-md-6 col-sm-12`}
             style={{
               border: "1px solid white",
               borderRadius: "20px 0px 0px 20px",
@@ -38,9 +50,10 @@ const Login = () => {
           >
             <div className="p-3">
               {/* <img src="../../public/assets/images/avatar.png" height="40px" width="40px" /> */}
-              <p class="">Welcome back!</p>
-              <p class="">Login</p>
-              <form>
+              <p className="">Welcome back!</p>
+              <p className="">Login</p>
+              <form method="post" onSubmit={(e) => onSubmit(e)}>
+                <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
                 <div className="mt-4">
                   <label className="block text-gray-700 text-sm font-bold mb-2">
                     Email Address
@@ -49,6 +62,8 @@ const Login = () => {
                     name="email"
                     className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
                     type="email"
+                    value={userEmail}
+                    onChange={(e) => setUserEmail(e.target.value)}
                   />
                 </div>
                 <div className="mt-4">
@@ -57,20 +72,25 @@ const Login = () => {
                       Password
                     </label>
                   </div>
-                  <input name="password" type="password" />
-                  <span class="text-xs text-gray-500">
+                  <input name="password" type="password"
+                    value={userPassword}
+                    onChange={(e) => setUserPassword(e.target.value)}
+                  />
+                  <span className="text-xs text-gray-500">
                     <a href="/forgotpassword/">Forget Password?</a>
                   </span>
                   <br></br>
                 </div>
                 <button
+                  type="submit"
                   className="btn btn-primary mt-4 mb-4"
                   style={{ width: "full", padding: "8px 24px" }}
+                // onClick={(e) => onSubmit(e)}
                 >
                   Login
                 </button>
                 <br></br>
-                <span class="text-xs text-gray-500">
+                <span className="text-xs text-gray-500">
                   <Link href="/register">
                     <a>Don't have account? Create Now</a>
                   </Link>
@@ -83,5 +103,11 @@ const Login = () => {
     </>
   );
 };
+
+// export async function getServerSideProps(context) {
+//   return {
+//     props: {}
+//   }
+// }
 
 export default Login;
