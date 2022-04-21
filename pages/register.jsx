@@ -1,3 +1,4 @@
+import { useState } from "react";
 import PageHelmet from "../All Component/component/common/Helmet";
 import Breadcrumb from "../All Component/elements/common/Breadcrumb";
 import HeaderTwo from "../All Component/component/header/HeaderTwo";
@@ -5,6 +6,9 @@ import Link from "next/link";
 import styles from "./login.module.css";
 
 const Register = () => {
+  const [userEmail, setUserEmail] = useState("");
+  const [userPassword, setUserPassword] = useState("");
+  const [userCPassword, setUserCPassword] = useState("");
   return (
     <>
       <PageHelmet pageTitle="Register" />
@@ -108,17 +112,21 @@ const Register = () => {
                   margin: "10px 0 20px",
                 }}
               >
-                <span
-                  // className="x-5"
-                  style={{
-                    background: "#fff",
-                    padding: "0 10px",
-                    fontSize: "12px",
-                    color: "#949494",
-                  }}
-                >
-                  OR LOGIN
-                </span>
+                <Link href="/login">
+                  <a>
+                    <span
+                      // className="x-5"
+                      style={{
+                        background: "#fff",
+                        padding: "0 10px",
+                        fontSize: "12px",
+                        color: "#949494",
+                      }}
+                    >
+                      OR LOGIN
+                    </span>
+                  </a>
+                </Link>
               </h2>
             </div>
           </div>
