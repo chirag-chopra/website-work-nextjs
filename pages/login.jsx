@@ -58,7 +58,7 @@ const Login = () => {
               {/* <img src="../../public/assets/images/avatar.png" height="40px" width="40px" /> */}
               <h4 class="text-center">Trydo</h4>
               <p class="text-center">Welcome Back!</p>
-              <form>
+              <form onSubmit={(e) => onSubmit(e)}>
                 <div className="">
                   <label className="block text-gray-700 text-sm font-bold mb-2">
                     Email Address
@@ -68,6 +68,8 @@ const Login = () => {
                     className="bg-gray-200 text-gray-700 outline-none shadow-outline border border-gray-300 rounded"
                     name="email"
                     type="email"
+                    value={userEmail}
+                    onChange={(e) => setUserEmail(e.target.value)}
                   />
                 </div>
                 <div className="mt-4">
@@ -81,10 +83,13 @@ const Login = () => {
                     className="bg-gray-200 text-gray-700 outline-none shadow-outline border border-gray-300 rounded"
                     name="password"
                     type="password"
+                    value={userPassword}
+                    onChange={(e) => setUserPassword(e.target.value)}
                   />
                 </div>
                 <div className="d-grid gap-2">
                   <button
+                    type="submit"
                     className="btn btn-primary mt-4 mb-4"
                     style={{
                       width: "full",
