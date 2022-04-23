@@ -4,11 +4,34 @@ import Breadcrumb from "../All Component/elements/common/Breadcrumb";
 import HeaderTwo from "../All Component/component/header/HeaderTwo";
 import Link from "next/link";
 import styles from "./login.module.css";
+import axios from "axios"
+import { useRouter } from "next/router"
 
 const Register = () => {
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
-  const [userCPassword, setUserCPassword] = useState("");
+  const [userFullname, setUserfullName] = useState("");
+  const [error, setError] = useState("")
+  const router = useRouter()
+
+  const onSubmit = async (e) => {
+
+    e.preventDefault();
+    // console.log(userEmail, userPassword);
+    let data = {
+      email: userEmail,
+      password: userPassword,
+      fullName: userFullname
+    }
+    const response = await axios.post("/api/auth/user-signup", data)
+    if (response.data.success == false) {
+      setError(response.data.message)
+    } else {
+      router.push('/login')
+    }
+
+  };
+
   return (
     <>
       <PageHelmet pageTitle="Register" />
@@ -45,7 +68,22 @@ const Register = () => {
               {/* <img src="../../public/assets/images/avatar.png" height="40px" width="40px" /> */}
               <h4 class="text-center">Trydo</h4>
               <p class="text-center">Create an Account</p>
-              <form>
+              {
+                error &&
+                <div className="alert alert-danger alert-dismissible fade show" style={{ position: "relative" }} role="alert">
+                  {error}
+                  <button type="button" className="close text-end" data-dismiss="alert" style={{
+                    position: "absolute",
+                    right: 0,
+                    padding: "1px",
+                    marginRight: "22px",
+                    fontSize: "24px"
+                  }} aria-label="Close">
+                    <span aria-hidden="true" onClick={() => setError("")}>×</span>
+                  </button>
+                </div>
+              }
+              <form onSubmit={(e) => onSubmit(e)}>
                 <div className="">
                   <label className="block text-gray-700 text-sm font-bold mb-2">
                     Email Address
@@ -55,6 +93,8 @@ const Register = () => {
                     className="bg-gray-200 text-gray-700 outline-none shadow-outline border border-gray-300 rounded"
                     name="email"
                     type="email"
+                    value={userEmail}
+                    onChange={(e) => setUserEmail(e.target.value)}
                   />
                 </div>
                 <div className="mt-4">
@@ -68,23 +108,28 @@ const Register = () => {
                     className="bg-gray-200 text-gray-700 outline-none shadow-outline border border-gray-300 rounded"
                     name="password"
                     type="password"
+                    value={userPassword}
+                    onChange={(e) => setUserPassword(e.target.value)}
                   />
                 </div>
                 <div className="mt-4">
                   <div className="flex justify-between">
                     <label className="block text-gray-700 text-sm font-bold mb-2">
-                      Confirm Password
+                      Full Name
                     </label>
                   </div>
                   <input
                     style={{ backgroundColor: "#dedede" }}
                     className="bg-gray-200 text-gray-700 outline-none shadow-outline border border-gray-300 rounded"
-                    name="password"
-                    type="password"
+                    name="fullname"
+                    type="text"
+                    value={userFullname}
+                    onChange={(e) => setUserfullName(e.target.value)}
                   />
                 </div>
                 <div className="d-grid gap-2">
                   <button
+                    type="submit"
                     className="btn btn-primary mt-4 mb-4"
                     style={{
                       width: "full",

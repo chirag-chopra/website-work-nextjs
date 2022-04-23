@@ -9,6 +9,7 @@ import ScrollToTop from "react-scroll-up";
 import Header from "../All Component/component/header/Header";
 import Footer from "../All Component/component/footer/Footer";
 
+import { getSession } from "next-auth/react"
 // const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 const Contact = () => {
@@ -161,4 +162,21 @@ const Contact = () => {
         </>
     );
 };
+
+export async function getServerSideProps(context) {
+    const session = await getSession(context)
+
+    if (!session) {
+        return {
+            redirect: {
+                destination: '/login',
+                permanent: false,
+            },
+        }
+    }
+
+    return {
+        props: { session }
+    }
+}
 export default Contact;

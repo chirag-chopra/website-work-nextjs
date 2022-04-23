@@ -5,7 +5,7 @@ import bcryptjs from "bcryptjs";
 const handler = async (req, res) => {
   if (req.method == "POST") {
     const { fullName, email, password } = req.body;
-
+    console.log(req.body)
     // check if user exists
     const isEmailExist = await Auth.exists({ email });
     if (!isEmailExist) {

@@ -3,8 +3,9 @@ import "../index.scss";
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import LoadingBar from "react-top-loading-bar";
-
-const MyApp = ({ Component, pageProps }) => {
+import { SessionProvider } from 'next-auth/react'
+import { getProviders, signIn, getSession, getCsrfToken } from "next-auth/react";
+const MyApp = ({ Component, pageProps: { session, ...pageProps } }) => {
     const [progress, setProgress] = useState(0);
 
     const router = useRouter();
@@ -24,9 +25,12 @@ const MyApp = ({ Component, pageProps }) => {
             <Head>
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
             </Head>
-            <Component {...pageProps} />
+            <SessionProvider session={session}>
+                <Component {...pageProps} />
+            </SessionProvider>
         </>
     );
 };
+
 
 export default MyApp;

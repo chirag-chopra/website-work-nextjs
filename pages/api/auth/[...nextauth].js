@@ -1,5 +1,6 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import axios from "axios"
 
 export default NextAuth({
     pages: {
@@ -13,15 +14,22 @@ export default NextAuth({
                 password: { label: "Password", type: "password" },
             },
             authorize: async (credentials, req) => {
-                console.log(credentials, "check")
-                // database look up
-                if (credentials.username === "nikhil@gmail.com" && credentials.password === "123456") {
-                    return {
-                        name: "nikhil"
+                try {
+
+                    console.log(credentials, "check")
+
+                    let body = {
+                        email: credentials.username,
+                        password: credentials.password
+                    }
+                    const res = await axios.post("http://localhost:3000/api/auth/user-signin", body)
+                    console.log("Api Check", res.data)
+                    if (res.data.success == true) {
+                        return res.data
                     }
                 }
-                else {
-                    return null
+                catch (error) {
+                    throw new Error(error.response.data.message)
                 }
             },
         }),
@@ -29,17 +37,20 @@ export default NextAuth({
 
     callbacks: {
         jwt: ({ token, user }) => {
+            console.log(user, "token")
             if (user) {
-                token.id = user.id;
+                token.id = user.token;
             }
             return token;
         },
         session: ({ session, token }) => {
+            console.log(session, "Session")
             if (token) {
                 session.id = token.id;
             }
             return session;
         },
+
     },
     secret: "thisistopsecret",
 });

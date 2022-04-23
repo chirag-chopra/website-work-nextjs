@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Link from 'next/link';
 import { FiX, FiMenu } from "react-icons/fi";
-
 // import "../../../public/assets"
 class HeaderTwo extends Component {
     constructor(props) {
@@ -62,8 +61,9 @@ class HeaderTwo extends Component {
         }
 
 
+
         return (
-            <header style={{ backgroundColor: '#00010c', position: "relative !important" }} className={`header-area-new formobile-menu header--transparent ${color} mb-3`}>
+            <header className={`header-area-new formobile-menu header--transparent ${color} mb-3`} style={{ backgroundColor: '#00010c' }} >
                 <div className="header-wrapper" id="header-wrapper">
                     <div className="header-left">
                         <div className="logo">
@@ -112,6 +112,7 @@ class HeaderTwo extends Component {
                                 </li>
                                 <li><Link href="/about-us" >About</Link></li>
                                 <li><Link href="/contact-us" >Contact</Link></li>
+
                             </ul>
                         </nav>
                         {/* <div className="header-btn">

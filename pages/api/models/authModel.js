@@ -7,11 +7,11 @@ const AuthSchema = new Schema(
   {
     fullName: String,
     email: String,
-    password: String,
-    confirmPassword: String,
+    password: String
   },
   { collection: "users", timestamps: true }
 );
 
 mongoose.models = {};
-export default mongoose.model("Auth", AuthSchema);
+const Auth = mongoose.model("Auth", AuthSchema);
+export default Auth

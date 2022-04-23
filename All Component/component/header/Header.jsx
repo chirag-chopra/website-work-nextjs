@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Link from 'next/link';
 import { FiX, FiMenu } from "react-icons/fi";
+import { signOut } from "next-auth/react"
 
 // import "../../../public/assets"
 class Header extends Component {
@@ -16,7 +17,6 @@ class Header extends Component {
             })
         }
     }
-
 
     menuTrigger() {
         if (typeof window !== "undefined") {
@@ -59,6 +59,12 @@ class Header extends Component {
         } else {
             logoUrl = <img src="/assets/images/logo/logo.png" alt="Digital Agency" />;
         }
+
+        const signout = async (e) => {
+            e.preventDefault();
+            const data = await signOut({ redirect: false })
+        }
+
 
 
         return (
@@ -111,6 +117,7 @@ class Header extends Component {
                                 </li>
                                 <li><Link href="/about-us" >About</Link></li>
                                 <li><Link href="/contact-us" >Contact</Link></li>
+                                <li><button className="btn btn-primary" onClick={(e) => signout(e)}>SignOut</button></li>
                             </ul>
                         </nav>
                         {/* <div className="header-btn">

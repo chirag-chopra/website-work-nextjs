@@ -15,13 +15,13 @@ const handler = async (req, res) => {
           token: "Basic fsdhfjj78f78fg4bgfbf78fbs",
         });
       } else {
-        res.status(200).json({ success: false, message: "Wrong password" });
+        res.status(400).json({ success: false, message: "Wrong password" });
       }
     } else {
-      res.status(200).json({ success: false, message: "User does't exist!" });
+      res.status(400).json({ success: false, message: "User does't exist!" });
     }
   } else {
-    res.status(200).json({ success: true, message: "Method not allowed" });
+    res.status(400).json({ success: true, message: "Method not allowed" });
   }
 };
 
