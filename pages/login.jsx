@@ -1,16 +1,21 @@
 import PageHelmet from "../All Component/component/common/Helmet";
 import { useState } from "react";
-import HeaderTwo from "../All Component/component/header/HeaderTwo";
-// import { signIn, csrfToken, getSession } from "next-auth/react"
-import { getProviders, signIn, getSession, getCsrfToken } from "next-auth/react";
+import Header from "../All Component/component/header/Header";
+import {
+  getProviders,
+  signIn,
+  getSession,
+  getCsrfToken,
+} from "next-auth/react";
 import Link from "next/link";
 import styles from "./login.module.css";
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
+
 const Login = () => {
   const router = useRouter();
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
-  const [error, setError] = useState("")
+  const [error, setError] = useState("");
   const onSubmit = async (e) => {
     try {
       e.preventDefault();
@@ -18,32 +23,35 @@ const Login = () => {
       const res = await signIn("credentials", {
         username: userEmail,
         password: userPassword,
-        redirect: false
+        redirect: false,
       });
-      console.log(res)
+      console.log(res);
       if (res.error == null) {
-        router.push('/')
+        router.push("/");
       } else {
-        setError(res.error)
+        setError(res.error);
       }
-    }
-    catch (error) {
-    }
-
+    } catch (error) {}
   };
 
   return (
     <>
       <PageHelmet pageTitle="Login" />
 
-      <HeaderTwo
-        className="mb-5"
+      <Header
         headertransparent="header--transparent"
         colorblack="color--black"
         logoname="logo.png"
       />
+
+      <div
+        className="breadcrumb-area rn-bg-color ptb--120 bg_image bg_image--1"
+        data-black-overlay="6"
+      />
+      {/* <Breadcrumb title={"Login"} /> */}
+
       {/* <h1 className='mt-5'>DOne</h1> */}
-      <div className="container mt-5">
+      <div className="container my-5">
         <div
           styles={{ alignItems: "center" }}
           className="row justify-content-center mt-3 mb-3"
@@ -71,21 +79,32 @@ const Login = () => {
               {/* <img src="../../public/assets/images/avatar.png" height="40px" width="40px" /> */}
               <h4 class="text-center">Trydo</h4>
               <p class="text-center">Welcome Back!</p>
-              {
-                error &&
-                <div className="alert alert-danger alert-dismissible fade show" style={{ position: "relative" }} role="alert">
+              {error && (
+                <div
+                  className="alert alert-danger alert-dismissible fade show"
+                  style={{ position: "relative" }}
+                  role="alert"
+                >
                   {error}
-                  <button type="button" className="close text-end" data-dismiss="alert" style={{
-                    position: "absolute",
-                    right: 0,
-                    padding: "1px",
-                    marginRight: "22px",
-                    fontSize: "24px"
-                  }} aria-label="Close">
-                    <span aria-hidden="true" onClick={() => setError("")}>×</span>
+                  <button
+                    type="button"
+                    className="close text-end"
+                    data-dismiss="alert"
+                    style={{
+                      position: "absolute",
+                      right: 0,
+                      padding: "1px",
+                      marginRight: "22px",
+                      fontSize: "24px",
+                    }}
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true" onClick={() => setError("")}>
+                      ×
+                    </span>
                   </button>
                 </div>
-              }
+              )}
               <form onSubmit={(e) => onSubmit(e)}>
                 <div className="">
                   <label className="block text-gray-700 text-sm font-bold mb-2">
@@ -165,7 +184,7 @@ const Login = () => {
 export async function getServerSideProps(context) {
   const { req } = context;
   const session = await getSession({ req });
-  console.log(session)
+  console.log(session);
   if (session) {
     return {
       redirect: { destination: "/" },
