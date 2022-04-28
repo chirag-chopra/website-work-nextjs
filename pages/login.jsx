@@ -1,12 +1,6 @@
 import PageHelmet from "../All Component/component/common/Helmet";
 import { useState } from "react";
 import Header from "../All Component/component/header/Header";
-import {
-  getProviders,
-  signIn,
-  getSession,
-  getCsrfToken,
-} from "next-auth/react";
 import Link from "next/link";
 import styles from "./login.module.css";
 import { useRouter } from "next/router";
@@ -236,23 +230,5 @@ const Login = () => {
     </>
   );
 };
-
-export async function getServerSideProps(context) {
-  const { req } = context;
-  const session = await getSession({ req });
-  console.log(session);
-  if (session) {
-    return {
-      redirect: { destination: "/" },
-    };
-  }
-
-  return {
-    props: {
-      providers: await getProviders(context),
-      csrfToken: await getCsrfToken(context),
-    },
-  };
-}
 
 export default Login;

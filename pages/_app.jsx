@@ -3,34 +3,30 @@ import "../index.scss";
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import LoadingBar from "react-top-loading-bar";
-import { SessionProvider } from 'next-auth/react'
-import { getProviders, signIn, getSession, getCsrfToken } from "next-auth/react";
-const MyApp = ({ Component, pageProps: { session, ...pageProps } }) => {
-    const [progress, setProgress] = useState(0);
 
-    const router = useRouter();
+const MyApp = ({ Component, pageProps }) => {
+  const [progress, setProgress] = useState(0);
 
-    useEffect(() => {
-        router.events.on("routeChangeStart", () => setProgress(40));
-        router.events.on("routeChangeComplete", () => setProgress(100));
-    });
-    return (
-        <>
-            <LoadingBar
-                color="#f11946"
-                progress={progress}
-                waitingTime={400}
-                onLoaderFinished={() => setProgress(0)}
-            />
-            <Head>
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
-            </Head>
-            <SessionProvider session={session}>
-                <Component {...pageProps} />
-            </SessionProvider>
-        </>
-    );
+  const router = useRouter();
+
+  useEffect(() => {
+    router.events.on("routeChangeStart", () => setProgress(40));
+    router.events.on("routeChangeComplete", () => setProgress(100));
+  });
+  return (
+    <>
+      <LoadingBar
+        color="#f11946"
+        progress={progress}
+        waitingTime={400}
+        onLoaderFinished={() => setProgress(0)}
+      />
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
+      <Component {...pageProps} />
+    </>
+  );
 };
-
 
 export default MyApp;
