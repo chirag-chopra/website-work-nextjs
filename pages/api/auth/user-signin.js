@@ -1,6 +1,7 @@
 import connectDB from "../utils/db";
 import Auth from "../models/authModel";
 import bcryptjs from "bcryptjs";
+import jwt from "jsonwebtoken";
 
 const handler = async (req, res) => {
   if (req.method == "POST") {
@@ -9,10 +10,11 @@ const handler = async (req, res) => {
     if (user) {
       const isPasswordMatched = await bcryptjs.compare(password, user.password);
       if (isPasswordMatched) {
+        const token = jwt.sign({ email }, process.env.JWT_SECRET);
         res.status(200).json({
           success: true,
           message: "User details fetched successfully!",
-          token: "Basic fsdhfjj78f78fg4bgfbf78fbs",
+          token,
         });
       } else {
         res.status(400).json({ success: false, message: "Wrong password" });

@@ -4,36 +4,84 @@ import Breadcrumb from "../All Component/elements/common/Breadcrumb";
 import HeaderTwo from "../All Component/component/header/HeaderTwo";
 import Link from "next/link";
 import styles from "./login.module.css";
-import axios from "axios"
-import { useRouter } from "next/router"
+// import axios from "axios";
+import { useRouter } from "next/router";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Register = () => {
+  const [userFullname, setUserfullName] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
-  const [userFullname, setUserfullName] = useState("");
-  const [error, setError] = useState("")
-  const router = useRouter()
+  const [error, setError] = useState("");
+  const router = useRouter();
+
+  const validateEmail = (emailAdress) => {
+    let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if (emailAdress.match(regexEmail)) {
+      return true;
+    } else {
+      return false;
+    }
+  };
 
   const onSubmit = async (e) => {
-
     e.preventDefault();
-    // console.log(userEmail, userPassword);
-    let data = {
+
+    // validation on client side only
+    const isEmailValid = validateEmail(userEmail);
+    console.log("IS EMAIL VALID : ", isEmailValid);
+
+    // actual login
+
+    const data = {
+      fullName: userFullname,
       email: userEmail,
       password: userPassword,
-      fullName: userFullname
-    }
-    const response = await axios.post("/api/auth/user-signup", data)
-    if (response.data.success == false) {
-      setError(response.data.message)
-    } else {
-      router.push('/login')
-    }
+    };
+    let res = await fetch("http://localhost:3000/api/auth/user-signup", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+    let response = await res.json();
+    setUserfullName("");
+    setUserEmail("");
+    setUserPassword("");
 
+    toast.success("Your account has been created!", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+
+    console.log("FINAL RESP : ", response);
+
+    // const response = await axios.post("/api/auth/user-signup", data);
+    // if (response.data.success == false) {
+    //   setError(response.data.message);
+    // } else {
+    //   router.push("/login");
+    // }
   };
 
   return (
     <>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <PageHelmet pageTitle="Register" />
 
       <HeaderTwo
@@ -66,24 +114,51 @@ const Register = () => {
           >
             <div className="p-3">
               {/* <img src="../../public/assets/images/avatar.png" height="40px" width="40px" /> */}
-              <h4 class="text-center">Trydo</h4>
-              <p class="text-center">Create an Account</p>
-              {
-                error &&
-                <div className="alert alert-danger alert-dismissible fade show" style={{ position: "relative" }} role="alert">
+              <h4 className="text-center">Trydo</h4>
+              <p className="text-center">Create an Account</p>
+              {error && (
+                <div
+                  className="alert alert-danger alert-dismissible fade show"
+                  style={{ position: "relative" }}
+                  role="alert"
+                >
                   {error}
-                  <button type="button" className="close text-end" data-dismiss="alert" style={{
-                    position: "absolute",
-                    right: 0,
-                    padding: "1px",
-                    marginRight: "22px",
-                    fontSize: "24px"
-                  }} aria-label="Close">
-                    <span aria-hidden="true" onClick={() => setError("")}>×</span>
+                  <button
+                    type="button"
+                    className="close text-end"
+                    data-dismiss="alert"
+                    style={{
+                      position: "absolute",
+                      right: 0,
+                      padding: "1px",
+                      marginRight: "22px",
+                      fontSize: "24px",
+                    }}
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true" onClick={() => setError("")}>
+                      ×
+                    </span>
                   </button>
                 </div>
-              }
-              <form onSubmit={(e) => onSubmit(e)}>
+              )}
+              <form onSubmit={(e) => onSubmit(e)} method="POST">
+                <div className="mt-4">
+                  <div className="flex justify-between">
+                    <label className="block text-gray-700 text-sm font-bold mb-2">
+                      Full Name
+                    </label>
+                  </div>
+                  <input
+                    style={{ backgroundColor: "#dedede" }}
+                    className="bg-gray-200 text-gray-700 outline-none shadow-outline border border-gray-300 rounded"
+                    name="fullname"
+                    type="text"
+                    value={userFullname}
+                    onChange={(e) => setUserfullName(e.target.value)}
+                    required
+                  />
+                </div>
                 <div className="">
                   <label className="block text-gray-700 text-sm font-bold mb-2">
                     Email Address
@@ -95,6 +170,7 @@ const Register = () => {
                     type="email"
                     value={userEmail}
                     onChange={(e) => setUserEmail(e.target.value)}
+                    required
                   />
                 </div>
                 <div className="mt-4">
@@ -110,23 +186,10 @@ const Register = () => {
                     type="password"
                     value={userPassword}
                     onChange={(e) => setUserPassword(e.target.value)}
+                    required
                   />
                 </div>
-                <div className="mt-4">
-                  <div className="flex justify-between">
-                    <label className="block text-gray-700 text-sm font-bold mb-2">
-                      Full Name
-                    </label>
-                  </div>
-                  <input
-                    style={{ backgroundColor: "#dedede" }}
-                    className="bg-gray-200 text-gray-700 outline-none shadow-outline border border-gray-300 rounded"
-                    name="fullname"
-                    type="text"
-                    value={userFullname}
-                    onChange={(e) => setUserfullName(e.target.value)}
-                  />
-                </div>
+
                 <div className="d-grid gap-2">
                   <button
                     type="submit"

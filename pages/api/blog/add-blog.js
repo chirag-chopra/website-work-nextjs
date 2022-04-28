@@ -21,7 +21,6 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage: storage });
-
 var authUpload = upload.fields([
   { name: "profilePics", maxCount: 1 },
   { name: "documentPic", maxCount: 1 },
@@ -29,9 +28,12 @@ var authUpload = upload.fields([
 
 const handler = async (req, res) => {
   if (req.method == "POST") {
-    const { titleTxt, titleImg, bodyObjects } = req.body;
+    const { titleTxt, titleImg, shortDesc, bodyObjects } = req.body;
 
-    await Blog.create({ head: { titleTxt, titleImg }, body: bodyObjects });
+    await Blog.create({
+      head: { titleTxt, titleImg, shortDesc },
+      body: bodyObjects,
+    });
     res.status(200).json({ success: true, message: "Blog added successfully" });
   } else {
     res.status(200).json({ success: true, message: "Method not allowed" });

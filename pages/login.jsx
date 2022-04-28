@@ -10,32 +10,86 @@ import {
 import Link from "next/link";
 import styles from "./login.module.css";
 import { useRouter } from "next/router";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const router = useRouter();
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
   const [error, setError] = useState("");
+
+  const validateEmail = (emailAdress) => {
+    let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if (emailAdress.match(regexEmail)) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
   const onSubmit = async (e) => {
-    try {
-      e.preventDefault();
-      console.log(userEmail, userPassword);
-      const res = await signIn("credentials", {
-        username: userEmail,
-        password: userPassword,
-        redirect: false,
+    e.preventDefault();
+
+    // validation on client side only
+    const isEmailValid = validateEmail(userEmail);
+    console.log("IS EMAIL VALID : ", isEmailValid);
+
+    // actual login
+
+    const data = { email: userEmail, password: userPassword };
+    let res = await fetch("http://localhost:3000/api/auth/user-signin", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+    let response = await res.json();
+    console.log("FINAL RESP : ", response);
+    if (response.success) {
+      localStorage.setItem("token", response.token);
+      toast.success("Your account has been created!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
       });
-      console.log(res);
-      if (res.error == null) {
-        router.push("/");
-      } else {
-        setError(res.error);
-      }
-    } catch (error) {}
+      setTimeout(() => {
+        router.push("http://localhost:3000");
+      }, 1000);
+    }
+    // try {
+    //   e.preventDefault();
+    //   console.log(userEmail, userPassword);
+    //   const res = await signIn("credentials", {
+    //     username: userEmail,
+    //     password: userPassword,
+    //     redirect: false,
+    //   });
+    //   console.log(res);
+    //   if (res.error == null) {
+    //     router.push("/");
+    //   } else {
+    //     setError(res.error);
+    //   }
+    // } catch (error) {}
   };
 
   return (
     <>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <PageHelmet pageTitle="Login" />
 
       <Header
@@ -77,8 +131,8 @@ const Login = () => {
           >
             <div className="p-3">
               {/* <img src="../../public/assets/images/avatar.png" height="40px" width="40px" /> */}
-              <h4 class="text-center">Trydo</h4>
-              <p class="text-center">Welcome Back!</p>
+              <h4 className="text-center">Trydo</h4>
+              <p className="text-center">Welcome Back!</p>
               {error && (
                 <div
                   className="alert alert-danger alert-dismissible fade show"
@@ -105,7 +159,7 @@ const Login = () => {
                   </button>
                 </div>
               )}
-              <form onSubmit={(e) => onSubmit(e)}>
+              <form onSubmit={(e) => onSubmit(e)} method="POST">
                 <div className="">
                   <label className="block text-gray-700 text-sm font-bold mb-2">
                     Email Address
@@ -117,6 +171,7 @@ const Login = () => {
                     type="email"
                     value={userEmail}
                     onChange={(e) => setUserEmail(e.target.value)}
+                    required
                   />
                 </div>
                 <div className="mt-4">
@@ -132,6 +187,7 @@ const Login = () => {
                     type="password"
                     value={userPassword}
                     onChange={(e) => setUserPassword(e.target.value)}
+                    required
                   />
                 </div>
                 <div className="d-grid gap-2">

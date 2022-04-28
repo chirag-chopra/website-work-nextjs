@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const BlogSchema = new mongoose.Schema(
   {
-    head: { titleTxt: String, titleImg: String },
+    head: { titleTxt: String, titleImg: String, shortDesc: String },
     body: mongoose.Schema.Types.Mixed,
     visibile: Boolean,
   },
