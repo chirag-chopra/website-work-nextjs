@@ -1,8 +1,8 @@
 import Link from "next/link";
 
 const BLogList = (props) => {
-  console.log(props)
-  const PostList = props.blog
+  console.log(props);
+  const PostList = props.blog;
   return (
     <div className="row">
       {PostList.map((value, i) => (
@@ -12,20 +12,25 @@ const BLogList = (props) => {
               <a href="/blog-details">
                 <img
                   className="w-100"
-                  src={`/assets/images/blog/blog-${value.images}.jpg`}
+                  src={`/assets/images/blog/blog-${value.frontMatter.thumbnailUrl}.jpg`}
                   alt="Blog Images"
                 />
               </a>
             </div>
             <div className="content">
-              <p className="blogtype">{value.category}</p>
+              <p className="blogtype">{value.frontMatter.date}</p>
               <h4 className="title">
-                <a href="/blog-details">{value.title}</a>
+                <a href="/blog-details">{value.frontMatter.title}</a>
               </h4>
               <div className="blog-btn">
-
-                <button className="btn btn-light"><Link className="rn-btn text-white" href={"/blogdetails/" + value.title} >Read More</Link></button>
-
+                <button className="btn btn-light">
+                  <Link
+                    className="rn-btn text-white"
+                    href={"/blog/" + value.slug}
+                  >
+                    Read More
+                  </Link>
+                </button>
               </div>
             </div>
           </div>

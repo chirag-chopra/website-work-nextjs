@@ -7,8 +7,12 @@ import ScrollToTop from "react-scroll-up";
 import { FiChevronUp } from "react-icons/fi";
 import Header from "../All Component/component/header/Header";
 import Footer from "../All Component/component/footer/Footer";
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
 
-const AllBLog = (props) => {
+const AllBLog = ({ posts }) => {
+  console.log("POST : ", posts);
   return (
     <>
       <PageHelmet pageTitle="Blog" />
@@ -25,7 +29,7 @@ const AllBLog = (props) => {
       {/* Start Blog Area */}
       <div className="rn-blog-area ptb--120 bg_color--1">
         <div className="container">
-          <BlogList blog={props.blogs} />
+          <BlogList blog={posts} />
           <div className="row mt--20">
             <div className="col-lg-12">
               {/* Start Pagination Area */}
@@ -50,12 +54,24 @@ const AllBLog = (props) => {
   );
 };
 
-export const getServerSideProps = async (context) => {
-  const data = await fetch("http://localhost:3000/api/blogs");
-  const blogs = await data.json();
-  return {
-    props: { blogs }, // will be passed to the page component as props
-  };
+export const getStaticProps = async () => {
+  const files = fs.readdirSync(path.join("pages", "posts"));
+
+  const posts = files.map((filename) => {
+    const markdownWithMeta = fs.readFileSync(
+      path.join("pages", "posts", filename),
+      "utf-8"
+    );
+    const { data: frontMatter } = matter(markdownWithMeta);
+
+    return {
+      frontMatter,
+      slug: filename.split(".")[0],
+    };
+  });
+  console.log("DAATA : ", posts);
+
+  return { props: { posts } };
 };
 
 export default AllBLog;
