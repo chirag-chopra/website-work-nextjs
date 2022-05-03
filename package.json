@@ -9,7 +9,7 @@
     "dotenv": "^16.0.0",
     "gray-matter": "^4.0.3",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.3.1",
+    "mongoose": "^6.3.2",
     "next": "latest",
     "next-mdx-remote": "^4.0.3",
     "react": "^18.1.0",
@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "eslint": "^8.14.0",
-    "eslint-config-next": "^12.1.5",
+    "eslint-config-next": "^12.1.6",
     "sass": "^1.51.0"
   }
 }

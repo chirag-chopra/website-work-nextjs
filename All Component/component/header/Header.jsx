@@ -146,14 +146,14 @@ class Header extends Component {
                 <li>
                   <Link href="/contact-us">Contact</Link>
                 </li>
-                <li>
+                {/* <li>
                   <button
                     className="btn btn-primary"
                     onClick={(e) => signout(e)}
                   >
                     SignOut
                   </button>
-                </li>
+                </li> */}
               </ul>
             </nav>
             {/* <div className="header-btn">

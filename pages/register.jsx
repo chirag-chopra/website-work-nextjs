@@ -4,7 +4,7 @@ import Breadcrumb from "../All Component/elements/common/Breadcrumb";
 import HeaderTwo from "../All Component/component/header/HeaderTwo";
 import Link from "next/link";
 import styles from "./login.module.css";
-// import axios from "axios";
+import Footer from "../All Component/component/footer/Footer";
 import { useRouter } from "next/router";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -60,13 +60,6 @@ const Register = () => {
     });
 
     console.log("FINAL RESP : ", response);
-
-    // const response = await axios.post("/api/auth/user-signup", data);
-    // if (response.data.success == false) {
-    //   setError(response.data.message);
-    // } else {
-    //   router.push("/login");
-    // }
   };
 
   return (
@@ -83,7 +76,6 @@ const Register = () => {
         pauseOnHover
       />
       <PageHelmet pageTitle="Register" />
-
       <HeaderTwo
         className="mb-5"
         headertransparent="header--transparent"
@@ -91,7 +83,7 @@ const Register = () => {
         logoname="logo.png"
       />
       {/* <h1 className='mt-5'>DOne</h1> */}
-      <div className="container mt-5">
+      <div className="container my-5 py-2">
         <div className="row justify-content-center mt-3 mb-3">
           <div
             className={`${styles.respon} col-xl-4 col-lg-6 col-md-6 col-sm-12`}
@@ -240,6 +232,7 @@ const Register = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

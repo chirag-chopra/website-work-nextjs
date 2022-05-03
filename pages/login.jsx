@@ -1,7 +1,8 @@
 import PageHelmet from "../All Component/component/common/Helmet";
 import { useState } from "react";
-import Header from "../All Component/component/header/Header";
+import HeaderTwo from "../All Component/component/header/HeaderTwo";
 import Link from "next/link";
+import Footer from "../All Component/component/footer/Footer";
 import styles from "./login.module.css";
 import { useRouter } from "next/router";
 import { ToastContainer, toast } from "react-toastify";
@@ -85,15 +86,11 @@ const Login = () => {
       />
       <PageHelmet pageTitle="Login" />
 
-      <Header
+      <HeaderTwo
+        className="mb-5"
         headertransparent="header--transparent"
         colorblack="color--black"
         logoname="logo.png"
-      />
-
-      <div
-        className="breadcrumb-area rn-bg-color ptb--120 bg_image bg_image--1"
-        data-black-overlay="6"
       />
       {/* <Breadcrumb title={"Login"} /> */}
 
@@ -226,6 +223,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };
