@@ -12,7 +12,6 @@ import path from "path";
 import matter from "gray-matter";
 
 const AllBLog = ({ posts }) => {
-  console.log("POST : ", posts);
   return (
     <>
       <PageHelmet pageTitle="Blog" />

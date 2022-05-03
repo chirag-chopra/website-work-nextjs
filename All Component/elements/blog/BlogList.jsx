@@ -1,7 +1,6 @@
 import Link from "next/link";
 
 const BLogList = (props) => {
-  console.log(props);
   const PostList = props.blog;
   return (
     <div className="row">

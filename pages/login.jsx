@@ -27,7 +27,6 @@ const Login = () => {
 
     // validation on client side only
     const isEmailValid = validateEmail(userEmail);
-    console.log("IS EMAIL VALID : ", isEmailValid);
 
     // actual login
 

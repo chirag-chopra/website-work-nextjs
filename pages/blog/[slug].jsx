@@ -13,9 +13,7 @@ import matter from "gray-matter";
 import { serialize } from "next-mdx-remote/serialize";
 
 const BlogDetails = ({ frontMatter, mdxSource }) => {
-  //   console.log(props, "check");
   const [isOpen, setIsOpen] = useState(false);
-  //   const singleBlog = props.oneBlog;
   const openModal = () => {
     setIsOpen(true);
   };
@@ -78,7 +76,7 @@ const BlogDetails = ({ frontMatter, mdxSource }) => {
                     passage of Lorem Ipsum. You need to be sure there isn't
                     anything embarrassing hidden in the middle of text. All the
                     Lorem Ipsum generators on the Internet tend toitrrepeat
-                    predefined chunks.{" "}
+                    predefined chunks.
                   </p>
                   <div className="thumbnail">
                     <img
@@ -94,7 +92,7 @@ const BlogDetails = ({ frontMatter, mdxSource }) => {
                     passage of Lorem Ipsum. You need to be sure there isn't
                     anything embarrassing hidden in the middle of text. All the
                     Lorem Ipsum generators on the Internet tend toitrrepeat
-                    predefined chunks.{" "}
+                    predefined chunks.
                   </p>
                   <p>
                     Necessary, making this the first true generator on the
