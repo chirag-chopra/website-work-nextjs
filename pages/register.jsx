@@ -1,7 +1,6 @@
 import { useState } from "react";
 import PageHelmet from "../All Component/component/common/Helmet";
-import Breadcrumb from "../All Component/elements/common/Breadcrumb";
-import HeaderTwo from "../All Component/component/header/HeaderTwo";
+import Header from "../All Component/component/header/Header";
 import Link from "next/link";
 import styles from "./login.module.css";
 import Footer from "../All Component/component/footer/Footer";
@@ -76,13 +75,16 @@ const Register = () => {
         pauseOnHover
       />
       <PageHelmet pageTitle="Register" />
-      <HeaderTwo
+      <Header
         className="mb-5"
         headertransparent="header--transparent"
         colorblack="color--black"
         logoname="logo.png"
       />
-      {/* <h1 className='mt-5'>DOne</h1> */}
+      <div
+        className="breadcrumb-area rn-bg-color ptb--80 bg_image bg_image--1"
+        data-black-overlay="6"
+      />
       <div className="container my-5 py-2">
         <div className="row justify-content-center mt-3 mb-3">
           <div

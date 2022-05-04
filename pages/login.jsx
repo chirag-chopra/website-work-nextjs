@@ -1,6 +1,8 @@
 import PageHelmet from "../All Component/component/common/Helmet";
+import Breadcrumb from "../All Component/elements/common/Breadcrumb";
+
 import { useState } from "react";
-import HeaderTwo from "../All Component/component/header/HeaderTwo";
+import Header from "../All Component/component/header/Header";
 import Link from "next/link";
 import Footer from "../All Component/component/footer/Footer";
 import styles from "./login.module.css";
@@ -86,16 +88,19 @@ const Login = () => {
       />
       <PageHelmet pageTitle="Login" />
 
-      <HeaderTwo
+      <Header
         className="mb-5"
         headertransparent="header--transparent"
         colorblack="color--black"
         logoname="logo.png"
       />
-      {/* <Breadcrumb title={"Login"} /> */}
+      <div
+        className="breadcrumb-area rn-bg-color ptb--80 bg_image bg_image--1"
+        data-black-overlay="6"
+      />
 
       {/* <h1 className='mt-5'>DOne</h1> */}
-      <div className="container my-5">
+      <div className="container my-5 py-2">
         <div
           styles={{ alignItems: "center" }}
           className="row justify-content-center mt-3 mb-3"
