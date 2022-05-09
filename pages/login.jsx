@@ -1,6 +1,4 @@
 import PageHelmet from "../All Component/component/common/Helmet";
-import Breadcrumb from "../All Component/elements/common/Breadcrumb";
-
 import { useState } from "react";
 import Header from "../All Component/component/header/Header";
 import Link from "next/link";
@@ -56,21 +54,6 @@ const Login = () => {
         router.push("http://localhost:3000");
       }, 1000);
     }
-    // try {
-    //   e.preventDefault();
-    //   console.log(userEmail, userPassword);
-    //   const res = await signIn("credentials", {
-    //     username: userEmail,
-    //     password: userPassword,
-    //     redirect: false,
-    //   });
-    //   console.log(res);
-    //   if (res.error == null) {
-    //     router.push("/");
-    //   } else {
-    //     setError(res.error);
-    //   }
-    // } catch (error) {}
   };
 
   return (

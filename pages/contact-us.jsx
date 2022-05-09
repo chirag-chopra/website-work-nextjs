@@ -1,24 +1,13 @@
 import React from "react";
 import PageHelmet from "../All Component/component/common/Helmet";
 import { FiHeadphones, FiMail, FiMapPin, FiChevronUp } from "react-icons/fi";
-// import GoogleMapReact from 'google-map-react';
 import ContactOne from "../All Component/elements/contact/ContactOne";
 import BrandTwo from "../All Component/elements/BrandTwo";
 import ScrollToTop from "react-scroll-up";
-// import { FiChevronUp } from "react-icons/fi";
 import Header from "../All Component/component/header/Header";
 import Footer from "../All Component/component/footer/Footer";
-// const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 const Contact = () => {
-  // const defaultProps = {
-  //     center: {
-  //         lat: 59.95,
-  //         lng: 30.33,
-  //     },
-  //     zoom: 11,
-  // };
-
   return (
     <>
       <PageHelmet pageTitle="Contact" />
@@ -41,7 +30,7 @@ const Contact = () => {
                 <h2 className="title theme-gradient">Cntact With Us</h2>
                 <p>
                   Contrary to popular belief, Lorem Ipsum is not simply random
-                  text.{" "}
+                  text.
                 </p>
               </div>
             </div>

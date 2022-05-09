@@ -85,7 +85,9 @@ class Header extends Component {
         <div className="header-wrapper" id="header-wrapper">
           <div className="header-left">
             <div className="logo">
-              <a href="/">{logoUrl}</a>
+              <Link href="/">
+                <a>{logoUrl}</a>
+              </Link>
             </div>
           </div>
           <div className="header-right">
