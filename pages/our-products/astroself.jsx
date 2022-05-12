@@ -1,9 +1,7 @@
-import Head from "next/head";
 import { ThemeProvider } from "styled-components";
-import { theme } from "../our-products/common/theme/appclassic"; // common/theme/appclassic
+import { theme } from "../our-products/common/theme/appclassic";
 import ResetCSS from "../our-products/common/assets/css/style";
 import Sticky from "react-stickynode";
-import Navbar from "../our-products/containers/AppClassic/Navbar";
 import Header from "../All Component/component/header/Header";
 import Footer from "../All Component/component/footer/Footer";
 import Banner from "../our-products/containers/AppClassic/Banner";
@@ -17,7 +15,6 @@ import PricingPolicy from "../our-products/containers/AppClassic/PricingPolicy";
 import Testimonial from "../our-products/containers/AppClassic/Testimonial";
 import Faq from "../our-products/containers/AppClassic/Faq";
 import JoinTrial from "../our-products/containers/AppClassic/JoinTrial";
-// import Footer from "../our-products/containers/AppClassic/Footer";
 import GlobalStyle, {
   AppWrapper,
   ContentWrapper,

@@ -1,0 +1,12 @@
+.outerContainer{
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    /* padding: 20px; */
+}
+
+.outerContainer h1{
+    margin-left: 10px;
+}
+

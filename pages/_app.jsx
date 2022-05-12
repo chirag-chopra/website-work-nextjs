@@ -3,12 +3,13 @@ import "../index.scss";
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import LoadingBar from "react-top-loading-bar";
+import "bootstrap/dist/css/bootstrap.css"; // Add this line
+// import "bootstrap/dist/js/bootstrap";
+import "bootstrap/dist/js/bootstrap";
 
 const MyApp = ({ Component, pageProps }) => {
   const [progress, setProgress] = useState(0);
-
   const router = useRouter();
-
   useEffect(() => {
     router.events.on("routeChangeStart", () => setProgress(40));
     router.events.on("routeChangeComplete", () => setProgress(100));

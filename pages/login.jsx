@@ -3,7 +3,7 @@ import { useState } from "react";
 import Header from "../All Component/component/header/Header";
 import Link from "next/link";
 import Footer from "../All Component/component/footer/Footer";
-import styles from "./login.module.css";
+import styles from "../styles/login.module.css";
 import { useRouter } from "next/router";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -138,36 +138,32 @@ const Login = () => {
                 </div>
               )}
               <form onSubmit={(e) => onSubmit(e)} method="POST">
-                <div className="">
+                <label className="block text-gray-700 text-sm font-bold mb-2">
+                  Email Address
+                </label>
+                <input
+                  style={{ backgroundColor: "#dedede" }}
+                  className="bg-gray-200 text-gray-700 outline-none shadow-outline border border-gray-300 rounded"
+                  name="email"
+                  type="email"
+                  value={userEmail}
+                  onChange={(e) => setUserEmail(e.target.value)}
+                  required
+                />
+                <div className="flex justify-between mt-4">
                   <label className="block text-gray-700 text-sm font-bold mb-2">
-                    Email Address
+                    Password
                   </label>
-                  <input
-                    style={{ backgroundColor: "#dedede" }}
-                    className="bg-gray-200 text-gray-700 outline-none shadow-outline border border-gray-300 rounded"
-                    name="email"
-                    type="email"
-                    value={userEmail}
-                    onChange={(e) => setUserEmail(e.target.value)}
-                    required
-                  />
                 </div>
-                <div className="mt-4">
-                  <div className="flex justify-between">
-                    <label className="block text-gray-700 text-sm font-bold mb-2">
-                      Password
-                    </label>
-                  </div>
-                  <input
-                    style={{ backgroundColor: "#dedede" }}
-                    className="bg-gray-200 text-gray-700 outline-none shadow-outline border border-gray-300 rounded"
-                    name="password"
-                    type="password"
-                    value={userPassword}
-                    onChange={(e) => setUserPassword(e.target.value)}
-                    required
-                  />
-                </div>
+                <input
+                  style={{ backgroundColor: "#dedede" }}
+                  className="bg-gray-200 text-gray-700 outline-none shadow-outline border border-gray-300 rounded"
+                  name="password"
+                  type="password"
+                  value={userPassword}
+                  onChange={(e) => setUserPassword(e.target.value)}
+                  required
+                />
                 <div className="d-grid gap-2">
                   <button
                     type="submit"
