@@ -13,7 +13,7 @@ import "react-accessible-accordion/dist/fancy-example.css";
 import Header from "../../All Component/component/header/Header";
 import Footer from "../../All Component/component/footer/Footer";
 
-const EmailExtractor = () => {
+const PrivacyPolicyGenerator = () => {
   return (
     <>
       <Header
@@ -29,32 +29,39 @@ const EmailExtractor = () => {
       <div className={styles.container}>
         <div className={styles.outerContainer}>
           <Image height={60} width={60} src={"/email-text-extraction.png"} />
-          <h3>Heading</h3>
+          <h3>Free Privacy Policy Generator Tool</h3>
           <br />
         </div>
 
         <div className="row g-2 justify-content-between mt-2">
           <div className="col-md">
-            <h6>Paste text message here</h6>
-            <textarea
-              type="email"
-              className="form-control mb-4"
-              id="floatingInputGrid"
-              placeholder="name@example.com"
-              style={{ height: 100, width: "100%" }}
-            />
+            <h6>Generate Your Privacy Policy</h6>
+            {/* <h6>Enter your information to start</h6> */}
+            <br />
+            <div className="row g-2 justify-content-between mb-3">
+              <div className="col-md">
+                <h6>Website Name:</h6>
+                <input placeholder="Enter wesbite name"></input>
+              </div>
+              <div style={{ width: "20px" }}></div>
+              <div className="col-md">
+                <h6>Website URL:</h6>
+                <input placeholder="Enter wesbite url"></input>
+              </div>
+            </div>
+            <br />
             <button type="button" className={styles.btnSuccess}>
-              Get Data
+              Generate Privacy Policy
             </button>
           </div>
           <div style={{ width: 50 }}></div>
           <div className="col-md">
-            <h6>Output</h6>
+            <h6>HTML Output</h6>
             <textarea
               type="email"
               className="form-control"
               id="floatingInputGrid"
-              placeholder="name@example.com"
+              placeholder="Output"
               style={{ height: 100, width: "100%" }}
             />
           </div>
@@ -120,4 +127,4 @@ const EmailExtractor = () => {
   );
 };
 
-export default EmailExtractor;
+export default PrivacyPolicyGenerator;
