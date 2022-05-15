@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Link from "next/link";
 import { FiX, FiMenu } from "react-icons/fi";
 
-// import "../../../public/assets"
 class Header extends Component {
   constructor(props) {
     super(props);
@@ -94,28 +93,6 @@ class Header extends Component {
             <nav className="mainmenunav d-lg-block">
               <ul className="mainmenu">
                 <li className="has-droupdown">
-                  <Link href="/">Home</Link>
-                  {/* <ul className="submenu">
-                                        <li><Link href="/main-demo">Main Demo</Link></li>
-                                        <li><Link href="/dark-main-demo">Main Demo Dark</Link></li>
-                                        <li><Link href="/creative-agency">Creative Agency</Link></li>
-                                        <li><Link href="/creative-landing">Creative One Page</Link></li>
-                                        <li><Link href="/creative-portfolio">Creative Portfolio</Link></li>
-                                        <li><Link href="/personal-portfolio">Personal Portfolio</Link></li>
-                                        <li><Link href="/portfolio-landing">Portfolio One Page</Link></li>
-                                        <li><Link href="/dark-portfolio-landing">Portfolio One Page 02</Link></li>
-                                        <li><Link href="/digital-agency">Digital Agency</Link></li>
-                                        <li><Link href="/startup">Startup</Link></li>
-                                        <li><Link href="/paralax">Paralax</Link></li>
-                                        <li><Link href="/portfolio-home">Minimal Portfolio</Link></li>
-                                        <li><Link href="/business">Business</Link></li>
-                                        <li><Link href="/home-particles">Home Particles</Link></li>
-                                        <li><Link href="/studio-agency">Studio Agency</Link></li>
-                                        <li><Link href="/designer-portfolio">Designer Portfolio</Link></li>
-                                        <li><Link href="/interactive-agency">Interactive Agency</Link></li>
-                                    </ul> */}
-                </li>
-                <li className="has-droupdown">
                   <Link href="/api-services">Api Services</Link>
                   <ul className="submenu">
                     <li>
@@ -124,23 +101,41 @@ class Header extends Component {
                   </ul>
                 </li>
                 <li className="has-droupdown">
-                  <Link href="/our-products">Our Products</Link>
+                  <Link href="">Our Products</Link>
                   <ul className="submenu">
                     <li>
-                      <Link href="#">Learn MLM</Link>
+                      <Link href="/our-products/learn-mlm">Learn MLM</Link>
                     </li>
                     <li>
-                      <Link href="#">GeoTaskie</Link>
+                      <Link href="/our-products/geotaskie">GeoTaskie</Link>
                     </li>
                     <li>
-                      <Link href="#">AstroSelf</Link>
+                      <Link href="/our-products/astroself">AstroSelf</Link>
                     </li>
                   </ul>
                 </li>
                 <li className="has-droupdown">
-                  <Link href="/all-blogs">
-                    <a>Blogs</a>
-                  </Link>
+                  <Link href="/all-blogs">Blogs</Link>
+                </li>
+                <li className="has-droupdown">
+                  <Link href="">Free Tools</Link>
+                  <ul className="submenu">
+                    <li>
+                      <Link href="/free-tools/email-extractor">
+                        Email Extractor
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/free-tools/privacy-policy-generator">
+                        Privacy Policy Generator
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/free-tools/terms-and-condition-generator">
+                        Terms & Conditions Generator
+                      </Link>
+                    </li>
+                  </ul>
                 </li>
                 <li>
                   <Link href="/about-us">About</Link>
