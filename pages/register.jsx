@@ -179,7 +179,7 @@ const Register = () => {
                 <div className="d-grid gap-2">
                   <button
                     type="submit"
-                    className="btn btn-primary mt-4 mb-4"
+                    className="btn text-white mt-4 mb-4"
                     style={{
                       width: "full",
                       padding: "8px 24px",

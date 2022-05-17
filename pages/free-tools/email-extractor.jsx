@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Image from "next/image";
 import styles from "../../styles/Emailextractor.module.css";
 import {
@@ -7,13 +8,31 @@ import {
   AccordionItemButton,
   AccordionItemPanel,
 } from "react-accessible-accordion";
-
-// Demo styles, see 'Styles' section below for some notes on use.
 import "react-accessible-accordion/dist/fancy-example.css";
 import Header from "../../All Component/component/header/Header";
 import Footer from "../../All Component/component/footer/Footer";
 
 const EmailExtractor = () => {
+  const [rawData, setRawData] = useState("");
+  const [extractedEmail, setExtractedEmail] = useState("");
+
+  const getFinalEmail = (text) => {
+    console.log("TEST : ", rawData);
+    const temp = text.match(
+      /([a-zA-Z0-9.-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9._-]+)/gi
+    );
+
+    const semiFinal = temp.filter(
+      (
+        (s) => (v) =>
+          s.has(v) || !s.add(v)
+      )(new Set())
+    );
+
+    const finalOutpt = semiFinal.toString().replaceAll(",", ",\n");
+    setExtractedEmail(finalOutpt);
+  };
+
   return (
     <>
       <Header
@@ -37,13 +56,26 @@ const EmailExtractor = () => {
           <div className="col-md">
             <h6>Paste text message here</h6>
             <textarea
-              type="email"
+              type="text"
               className="form-control mb-4"
-              id="floatingInputGrid"
-              placeholder="name@example.com"
+              placeholder="Enter text here"
+              onChange={(e) => setRawData(e.target.value)}
               style={{ height: 100, width: "100%" }}
             />
-            <button type="button" className={styles.btnSuccess}>
+            <button
+              onClick={() => {
+                // console.log("LION : ", rawData);
+                getFinalEmail(rawData);
+              }}
+              type="submit"
+              className="btn text-white mt-4 mb-4"
+              style={{
+                width: "full",
+                padding: "8px 24px",
+                backgroundColor: "#f81f01",
+                borderColor: "#f81f01",
+              }}
+            >
               Get Data
             </button>
           </div>
@@ -51,11 +83,12 @@ const EmailExtractor = () => {
           <div className="col-md">
             <h6>Output</h6>
             <textarea
-              type="email"
-              className="form-control"
-              id="floatingInputGrid"
-              placeholder="name@example.com"
-              style={{ height: 100, width: "100%" }}
+              type="text"
+              readOnly
+              value={extractedEmail}
+              className="form-control bg-white"
+              placeholder="Output"
+              style={{ height: 200, width: "100%" }}
             />
           </div>
         </div>

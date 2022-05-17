@@ -44,15 +44,15 @@ const Home = () => {
       {/* End Service Area  */}
 
       {/* Start Portfolio Area */}
-      <div className="portfolio-area ptb--120 bg_color--1">
+      {/* <div className="portfolio-area ptb--120 bg_color--1">
         <div className="portfolio-sacousel-inner mb--55">
           <Portfolio />
         </div>
-      </div>
+      </div> */}
       {/* End Portfolio Area */}
 
       {/* Start CounterUp Area */}
-      <div className="rn-counterup-area pt--25 pb--110 bg_color--1">
+      {/* <div className="rn-counterup-area pt--25 pb--110 bg_color--1">
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
@@ -63,11 +63,11 @@ const Home = () => {
           </div>
           <CounterOne />
         </div>
-      </div>
+      </div> */}
       {/* End CounterUp Area */}
 
       {/* Start Testimonial Area */}
-      <div className="rn-testimonial-area bg_color--5 ptb--120">
+      <div className="rn-testimonial-area bg_color--5 pt--50 pb--100">
         <div className="container">
           <Testimonial />
         </div>
@@ -95,7 +95,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="row mt--60 mt_sm--40">
+          <div className="row mt--60 mt_sm--40 pb--160">
             {PostList.map((value, i) => (
               <div className="col-lg-4 col-md-6 col-12" key={i}>
                 <div className="blog blog-style--1">
@@ -128,7 +128,7 @@ const Home = () => {
       {/* End Blog Area */}
 
       {/* Start Brand Area */}
-      <div className="rn-brand-area brand-separation pb--120">
+      {/* <div className="rn-brand-area brand-separation pb--120">
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
@@ -136,7 +136,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       {/* End Brand Area */}
       {/* Start Back To Top */}
       <div className="backto-top">

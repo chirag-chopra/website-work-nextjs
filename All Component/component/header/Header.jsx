@@ -73,9 +73,9 @@ class Header extends Component {
       logoUrl = <img src="/assets/images/logo/logo.png" alt="Digital Agency" />;
     }
 
-    const signout = async (e) => {
-      e.preventDefault();
-    };
+    // const signout = async (e) => {
+    //   e.preventDefault();
+    // };
 
     return (
       <header
