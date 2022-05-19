@@ -68,7 +68,7 @@ export const getStaticProps = async () => {
       slug: filename.split(".")[0],
     };
   });
-  console.log("DAATA : ", posts);
+  // console.log("DAATA : ", posts);
 
   return { props: { posts } };
 };

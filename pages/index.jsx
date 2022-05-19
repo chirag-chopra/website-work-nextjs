@@ -4,12 +4,12 @@ import Header from "../All Component/component/header/Header";
 import Footer from "../All Component/component/footer/Footer";
 import SliderOne from "../All Component/component/slider/SliderOne";
 import ServiceTwo from "../All Component/elements/service/ServiceTwo";
-import CounterOne from "../All Component/elements/counters/CounterOne";
+// import CounterOne from "../All Component/elements/counters/CounterOne";
 import Testimonial from "../All Component/elements/Testimonial";
 import About from "../All Component/component/HomeLayout/homeOne/About";
-import Portfolio from "../All Component/component/HomeLayout/homeOne/Portfolio";
+// import Portfolio from "../All Component/component/HomeLayout/homeOne/Portfolio";
 import BlogContent from "../All Component/elements/blog/BlogContent";
-import BrandTwo from "../All Component/elements/BrandTwo";
+// import BrandTwo from "../All Component/elements/BrandTwo";
 import Helmet from "../All Component/component/common/Helmet";
 
 const Home = () => {
@@ -80,7 +80,7 @@ const Home = () => {
           <div className="row align-items-end">
             <div className="col-lg-6 col-md-12 col-sm-12 col-12">
               <div className="section-title text-left">
-                <h2>Latest News</h2>
+                <h2>Lastest Blogs</h2>
                 <p>
                   There are many variations of passages of Lorem Ipsum
                   available, but the majority have suffered alteration.
@@ -89,8 +89,8 @@ const Home = () => {
             </div>
             <div className="col-lg-6 col-md-12 col-sm-12 col-12">
               <div className="blog-btn text-left text-lg-right mt_sm--10 mt_md--10">
-                <a className="btn-transparent rn-btn-dark" href="/blog">
-                  <span className="text">View All News</span>
+                <a className="btn-transparent rn-btn-dark" href="/blogs">
+                  <span className="text">View All Blogs</span>
                 </a>
               </div>
             </div>

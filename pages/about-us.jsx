@@ -3,10 +3,10 @@ import PageHelmet from "../All Component/component/common/Helmet";
 import Breadcrumb from "../All Component/elements/common/Breadcrumb";
 import CounterOne from "../All Component/elements/counters/CounterOne";
 import Testimonial from "../All Component/elements/Testimonial";
-import BrandTwo from "../All Component/elements/BrandTwo";
-import { FaFacebookF, FaLinkedinIn, FaTwitter } from "react-icons/fa";
+// import BrandTwo from "../All Component/elements/BrandTwo";
+// import { FaFacebookF, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 import ScrollToTop from "react-scroll-up";
-import { FiChevronUp } from "react-icons/fi";
+// import { FiChevronUp } from "react-icons/fi";
 import Header from "../All Component/component/header/Header";
 import Footer from "../All Component/component/footer/Footer";
 
@@ -95,7 +95,7 @@ const About = () => {
         <div className="inner">
           <div className="content-wrapper">
             <div className="content">
-              <h4 className="theme-gradient">Find Your Work Now</h4>
+              <h4 className="theme-gradient">Any Good Quote</h4>
               <p>
                 It is a long established fact that a reader will be distracted
                 by the readable content of a page when looking at its layout.
@@ -116,7 +116,7 @@ const About = () => {
       {/* End Finding Us Area  */}
 
       {/* Start Team Area  */}
-      <div className="rn-team-area bg_color--1 ptb--120">
+      {/* <div className="rn-team-area bg_color--1 ptb--120">
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
@@ -129,9 +129,9 @@ const About = () => {
               </div>
             </div>
           </div>
-          <div className="row">
-            {/* Start Single Team  */}
-            <div className="col-lg-4 col-md-6 col-sm-6 col-12">
+          <div className="row"> */}
+      {/* Start Single Team  */}
+      {/* <div className="col-lg-4 col-md-6 col-sm-6 col-12">
               <div className="team">
                 <div className="thumbnail">
                   <img
@@ -162,11 +162,11 @@ const About = () => {
                   </li>
                 </ul>
               </div>
-            </div>
-            {/* End Single Team  */}
+            </div> */}
+      {/* End Single Team  */}
 
-            {/* Start Single Team  */}
-            <div className="col-lg-4 col-md-6 col-sm-6 col-12">
+      {/* Start Single Team  */}
+      {/* <div className="col-lg-4 col-md-6 col-sm-6 col-12">
               <div className="team">
                 <div className="thumbnail">
                   <img
@@ -197,11 +197,11 @@ const About = () => {
                   </li>
                 </ul>
               </div>
-            </div>
-            {/* End Single Team  */}
+            </div> */}
+      {/* End Single Team  */}
 
-            {/* Start Single Team  */}
-            <div className="col-lg-4 col-md-6 col-sm-6 col-12">
+      {/* Start Single Team  */}
+      {/* <div className="col-lg-4 col-md-6 col-sm-6 col-12">
               <div className="team">
                 <div className="thumbnail">
                   <img
@@ -232,11 +232,11 @@ const About = () => {
                   </li>
                 </ul>
               </div>
-            </div>
-            {/* End Single Team  */}
-          </div>
+            </div> */}
+      {/* End Single Team  */}
+      {/* </div>
         </div>
-      </div>
+      </div> */}
       {/* End Team Area  */}
 
       {/* Start Testimonial Area */}
@@ -248,7 +248,7 @@ const About = () => {
       {/* End Testimonial Area */}
 
       {/* Start Brand Area */}
-      <div className="rn-brand-area brand-separation bg_color--5 ptb--120">
+      {/* <div className="rn-brand-area brand-separation bg_color--5 ptb--120">
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
@@ -256,7 +256,7 @@ const About = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       {/* End Brand Area */}
 
       {/* Start Back To Top */}
@@ -275,7 +275,7 @@ const About = () => {
               strokeLinejoin="round"
               d="M5 10l7-7m0 0l7 7m-7-7v18"
             />
-          </svg>{" "}
+          </svg>
         </ScrollToTop>
       </div>
       {/* End Back To Top */}

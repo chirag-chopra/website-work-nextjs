@@ -2,7 +2,7 @@ import React from "react";
 import PageHelmet from "../All Component/component/common/Helmet";
 import { FiHeadphones, FiMail, FiMapPin, FiChevronUp } from "react-icons/fi";
 import ContactOne from "../All Component/elements/contact/ContactOne";
-import BrandTwo from "../All Component/elements/BrandTwo";
+// import BrandTwo from "../All Component/elements/BrandTwo";
 import ScrollToTop from "react-scroll-up";
 import Header from "../All Component/component/header/Header";
 import Footer from "../All Component/component/footer/Footer";
@@ -126,7 +126,7 @@ const Contact = () => {
       {/* End Contact Map  */}
 
       {/* Start Brand Area */}
-      <div className="rn-brand-area brand-separation bg_color--5 ptb--120">
+      {/* <div className="rn-brand-area brand-separation bg_color--5 ptb--120">
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
@@ -134,7 +134,7 @@ const Contact = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       {/* End Brand Area */}
 
       {/* Start Back To Top */}

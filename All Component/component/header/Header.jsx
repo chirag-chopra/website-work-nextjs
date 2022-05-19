@@ -93,7 +93,7 @@ class Header extends Component {
             <nav className="mainmenunav d-lg-block">
               <ul className="mainmenu">
                 <li className="has-droupdown">
-                  <Link href="/api-services">Api Services</Link>
+                  <Link href="">Api Services</Link>
                   <ul className="submenu">
                     <li>
                       <Link href="#">Astrology API</Link>
@@ -115,7 +115,7 @@ class Header extends Component {
                   </ul>
                 </li>
                 <li className="has-droupdown">
-                  <Link href="/all-blogs">Blogs</Link>
+                  <Link href="/blogs">Blogs</Link>
                 </li>
                 <li className="has-droupdown">
                   <Link href="">Free Tools</Link>
