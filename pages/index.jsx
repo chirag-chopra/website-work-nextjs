@@ -11,6 +11,7 @@ import About from "../All Component/component/HomeLayout/homeOne/About";
 import BlogContent from "../All Component/elements/blog/BlogContent";
 // import BrandTwo from "../All Component/elements/BrandTwo";
 import Helmet from "../All Component/component/common/Helmet";
+import Link from "next/link";
 
 const Home = () => {
   const PostList = BlogContent.slice(0, 3);
@@ -89,9 +90,9 @@ const Home = () => {
             </div>
             <div className="col-lg-6 col-md-12 col-sm-12 col-12">
               <div className="blog-btn text-left text-lg-right mt_sm--10 mt_md--10">
-                <a className="btn-transparent rn-btn-dark" href="/blogs">
+                <Link className="btn-transparent rn-btn-dark" href="/blogs">
                   <span className="text">View All Blogs</span>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
