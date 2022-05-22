@@ -113,7 +113,7 @@ const PrivacyPolicyGenerator = () => {
               className="form-control"
               placeholder="Output"
               onChange={(e) => setOutput(e.target.value)}
-              style={{ height: 100, width: "100%" }}
+              style={{ height: 180, width: "100%" }}
             />
           </div>
         </div>
@@ -161,10 +161,8 @@ const PrivacyPolicyGenerator = () => {
             quibusdam, culpa minima odio in.
           </p>
         </div>
-
         {/* FAQs */}
         <h3 className="theme-gradient mt-4 mb-3">FAQs</h3>
-
         <Accordion>
           <AccordionItem>
             <AccordionItemHeading>
