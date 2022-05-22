@@ -91,9 +91,8 @@
 
 /* text box */
 .textBox {
-  border-radius: 0.25rem !important;
-  padding: 1rem !important;
-  border: 3px solid !important;
+  border-radius: 10px !important;
+  padding: 40px !important;
 }
 
 /* accordian */

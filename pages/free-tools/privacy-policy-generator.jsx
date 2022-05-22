@@ -7,11 +7,11 @@ import {
   AccordionItemButton,
   AccordionItemPanel,
 } from "react-accessible-accordion";
-
-// Demo styles, see 'Styles' section below for some notes on use.
 import "react-accessible-accordion/dist/fancy-example.css";
 import Header from "../../All Component/component/header/Header";
 import Footer from "../../All Component/component/footer/Footer";
+
+// www.example.com/privacy-policy?=${websitename}-2022-05-20T19:06:02.404Z
 
 const PrivacyPolicyGenerator = () => {
   return (
@@ -35,7 +35,8 @@ const PrivacyPolicyGenerator = () => {
 
         <div className="row g-2 justify-content-between mt-2">
           <div className="col-md">
-            <h6>Generate Your Privacy Policy</h6>
+            <h6 className="title">Generate Your Privacy Policy</h6>
+
             {/* <h6>Enter your information to start</h6> */}
             <br />
             <div className="row g-2 justify-content-between mb-3">
@@ -67,15 +68,44 @@ const PrivacyPolicyGenerator = () => {
           </div>
         </div>
 
-        {/* Explaination */}
-        <h3 className={styles.customH3}>Car Repair Shop</h3>
-        <div className={styles.textBox}>
+        <div className="mt-5 mb-3">
+          <h4>Link to your Privacy Policy</h4>
           <p>
+            Link to your generated Privacy Policy by using the link below.
+            Hosting is free, forever.
+          </p>
+        </div>
+        <div className="row g-2 justify-content-between">
+          <a className="rn-btn btn-black col-md text-center" href="/about">
+            Copy link to clipboard
+          </a>
+          <div style={{ width: "30%" }} />
+          <input
+            className="col-md"
+            // style={{ width: "30%" }}
+            placeholder="Enter wesbite name"
+            readOnly
+          />
+        </div>
+        <br></br>
+
+        {/* Explaination */}
+        <div
+          style={{
+            backgroundColor: "#272527",
+            marginTop: "50px",
+            marginBottom: "50px",
+          }}
+          className={styles.textBox}
+        >
+          <h3 className="theme-gradient mb-4">Car Repair Shop</h3>
+          {/* <h3 className={styles.customH3}></h3> */}
+          <p className="text-white">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
             minima aut minus aperiam distinctio. Iure amet optio neque
             quibusdam, culpa minima odio in.
           </p>
-          <p>
+          <p className="text-white">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
             minima aut minus aperiam distinctio. Iure amet optio neque
             quibusdam, culpa minima odio in.
@@ -83,7 +113,7 @@ const PrivacyPolicyGenerator = () => {
         </div>
 
         {/* FAQs */}
-        <h3 className="mt-4 mb-3">FAQs</h3>
+        <h3 className="theme-gradient mt-4 mb-3">FAQs</h3>
 
         <Accordion>
           <AccordionItem>

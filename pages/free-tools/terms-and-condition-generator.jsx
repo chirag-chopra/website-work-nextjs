@@ -7,8 +7,6 @@ import {
   AccordionItemButton,
   AccordionItemPanel,
 } from "react-accessible-accordion";
-
-// Demo styles, see 'Styles' section below for some notes on use.
 import "react-accessible-accordion/dist/fancy-example.css";
 import Header from "../../All Component/component/header/Header";
 import Footer from "../../All Component/component/footer/Footer";
@@ -29,19 +27,19 @@ const TermsAndConditionGenerator = () => {
       <div className={styles.container}>
         <div className={styles.outerContainer}>
           <Image height={60} width={60} src={"/email-text-extraction.png"} />
-          <h3>Free Privacy Policy Generator Tool</h3>
+          <h3>Free Terms & Condition Generator Tool</h3>
           <br />
         </div>
 
         <div className="row g-2 justify-content-between mt-2">
           <div className="col-md">
-            <h6>Generate Your Privacy Policy</h6>
+            <h6>Generate Your Terms & Condition</h6>
             {/* <h6>Enter your information to start</h6> */}
             <br />
             <div className="row g-2 justify-content-between mb-3">
               <div className="col-md">
-                <h6>Website Name:</h6>
-                <input placeholder="Enter wesbite name"></input>
+                <h6>Company Name:</h6>
+                <input placeholder="Enter company name"></input>
               </div>
               <div style={{ width: "20px" }}></div>
               <div className="col-md">
@@ -62,20 +60,28 @@ const TermsAndConditionGenerator = () => {
               className="form-control"
               id="floatingInputGrid"
               placeholder="Output"
-              style={{ height: 100, width: "100%" }}
+              style={{ height: 180, width: "100%" }}
             />
           </div>
         </div>
 
         {/* Explaination */}
-        <h3 className={styles.customH3}>Car Repair Shop</h3>
-        <div className={styles.textBox}>
-          <p>
+        <div
+          style={{
+            backgroundColor: "#272527",
+            marginTop: "50px",
+            marginBottom: "50px",
+          }}
+          className={styles.textBox}
+        >
+          <h3 className="theme-gradient mb-4">Car Repair Shop</h3>
+          {/* <h3 className={styles.customH3}></h3> */}
+          <p className="text-white">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
             minima aut minus aperiam distinctio. Iure amet optio neque
             quibusdam, culpa minima odio in.
           </p>
-          <p>
+          <p className="text-white">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
             minima aut minus aperiam distinctio. Iure amet optio neque
             quibusdam, culpa minima odio in.
@@ -83,8 +89,7 @@ const TermsAndConditionGenerator = () => {
         </div>
 
         {/* FAQs */}
-        <h3 className="mt-4 mb-3">FAQs</h3>
-
+        <h3 className="theme-gradient mt-4 mb-3">FAQs</h3>
         <Accordion>
           <AccordionItem>
             <AccordionItemHeading>

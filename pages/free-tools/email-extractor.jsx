@@ -48,7 +48,7 @@ const EmailExtractor = () => {
       <div className={styles.container}>
         <div className={styles.outerContainer}>
           <Image height={60} width={60} src={"/email-text-extraction.png"} />
-          <h3>Heading</h3>
+          <h3 className="theme-gradient">Heading</h3>
           <br />
         </div>
 
@@ -94,14 +94,22 @@ const EmailExtractor = () => {
         </div>
 
         {/* Explaination */}
-        <h3 className={styles.customH3}>Car Repair Shop</h3>
-        <div className={styles.textBox}>
-          <p>
+        <div
+          style={{
+            backgroundColor: "#272527",
+            marginTop: "50px",
+            marginBottom: "50px",
+          }}
+          className={styles.textBox}
+        >
+          <h3 className="theme-gradient mb-4">Car Repair Shop</h3>
+          {/* <h3 className={styles.customH3}></h3> */}
+          <p className="text-white">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
             minima aut minus aperiam distinctio. Iure amet optio neque
             quibusdam, culpa minima odio in.
           </p>
-          <p>
+          <p className="text-white">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto
             minima aut minus aperiam distinctio. Iure amet optio neque
             quibusdam, culpa minima odio in.
@@ -109,8 +117,7 @@ const EmailExtractor = () => {
         </div>
 
         {/* FAQs */}
-        <h3 className="mt-4 mb-3">FAQs</h3>
-
+        <h3 className="theme-gradient mt-4 mb-3">FAQs</h3>
         <Accordion>
           <AccordionItem>
             <AccordionItemHeading>
