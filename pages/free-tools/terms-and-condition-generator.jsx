@@ -21,7 +21,6 @@ const TermsAndConditionGenerator = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log("Testing");
     if (websiteName == "" || websiteUrl == "") {
       toast.error("Please enter website name & url", {
         position: "top-right",
