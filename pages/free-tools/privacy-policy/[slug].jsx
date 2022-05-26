@@ -1,4 +1,3 @@
-import Router from "next/router";
 import Footer from "../../../All Component/component/footer/FooterTwo";
 
 const PrivacyPolicy = (props) => {
@@ -237,17 +236,25 @@ const PrivacyPolicy = (props) => {
   );
 };
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
   const res = await fetch("http://localhost:3000/api/privacy/get-privacy", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ slugText: "testing-url" }),
+    body: JSON.stringify({ slugText: context.query.slug }),
     redirect: "follow",
   });
   const data = await res.json();
-  return {
-    props: { data }, // will be passed to the page component as props
-  };
+  if (data.success == true) {
+    return { props: { data } };
+  } else {
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/404",
+      },
+      props: {},
+    };
+  }
 }
 
 export default PrivacyPolicy;
