@@ -3,16 +3,15 @@ import Privacy from "../models/privacyModel";
 
 const handler = async (req, res) => {
   if (req.method == "POST") {
-    const { slugText } = req.body;
-    const privacyData = await Privacy.findOne({ slug: slugText });
+    const { slug } = req.body;
+    const privacyData = await Privacy.findOne({ slug: slug });
+    console.log("BACK : ", slug);
     if (privacyData != null) {
-      res
-        .status(200)
-        .json({
-          success: true,
-          message: "Privacy added successfully",
-          data: privacyData,
-        });
+      res.status(200).json({
+        success: true,
+        message: "Privacy added successfully",
+        data: privacyData,
+      });
     } else {
       res.status(200).json({ success: false, message: "invalid url" });
     }

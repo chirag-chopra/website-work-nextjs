@@ -3,13 +3,8 @@ import Privacy from "../models/privacyModel";
 
 const handler = async (req, res) => {
   if (req.method == "POST") {
-    const { slugText, headingOne, headingTwo } = req.body;
-
-    await Privacy.create({
-      slug: slugText,
-      headingOne,
-      headingTwo,
-    });
+    const { slug, websiteName, websiteUrl } = req.body;
+    await Privacy.create({ slug, websiteName, websiteUrl });
     res
       .status(200)
       .json({ success: true, message: "Privacy added successfully" });

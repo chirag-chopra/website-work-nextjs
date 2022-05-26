@@ -3,8 +3,8 @@ const mongoose = require("mongoose");
 const PrivacySchema = new mongoose.Schema(
   {
     slug: String,
-    headingOne: String,
-    headingTwo: String,
+    websiteName: String,
+    websiteUrl: String,
   },
   { timestamps: true }
 );

@@ -237,23 +237,19 @@ const PrivacyPolicy = (props) => {
 };
 
 export async function getServerSideProps(context) {
+  // http://localhost:3000/free-tools/privacy-policy/headingOne-headingTwo-1653599925094
+  console.log("TEST : ", context.query.slug);
   const res = await fetch("http://localhost:3000/api/privacy/get-privacy", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ slugText: context.query.slug }),
+    body: JSON.stringify({ slug: context.query.slug }),
     redirect: "follow",
   });
   const data = await res.json();
   if (data.success == true) {
     return { props: { data } };
   } else {
-    return {
-      redirect: {
-        permanent: false,
-        destination: "/404",
-      },
-      props: {},
-    };
+    return { redirect: { permanent: false, destination: "/404" }, props: {} };
   }
 }
 
