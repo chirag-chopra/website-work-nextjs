@@ -11,7 +11,7 @@
     "dotenv": "^16.0.1",
     "gray-matter": "^4.0.3",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.3.3",
+    "mongoose": "^6.3.5",
     "next": "latest",
     "next-mdx-remote": "^4.0.3",
     "nodemailer": "^6.7.5",
@@ -33,7 +33,7 @@
     "react-stickynode": "^4.0.0",
     "react-syntax-highlighter": "^15.5.0",
     "react-tabs": "^5.1.0",
-    "react-toastify": "^9.0.1",
+    "react-toastify": "^9.0.3",
     "react-top-loading-bar": "^2.1.0",
     "react-visibility-sensor": "^5.1.1",
     "slick-carousel": "^1.8.1",
@@ -47,8 +47,8 @@
     "export": "next build && next export"
   },
   "devDependencies": {
-    "eslint": "^8.15.0",
+    "eslint": "^8.16.0",
     "eslint-config-next": "^12.1.6",
-    "sass": "^1.51.0"
+    "sass": "^1.52.1"
   }
 }

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import { Component } from "react";
 import Link from "next/link";
 import { FiX, FiMenu } from "react-icons/fi";
 
@@ -11,7 +11,7 @@ class Header extends Component {
     if (typeof window !== "undefined") {
       // Client-side-only code
       window.addEventListener("load", function () {
-        console.log("All assets are loaded");
+        // console.log("All assets are loaded");
       });
     }
   }
@@ -72,10 +72,6 @@ class Header extends Component {
     } else {
       logoUrl = <img src="/assets/images/logo/logo.png" alt="Digital Agency" />;
     }
-
-    // const signout = async (e) => {
-    //   e.preventDefault();
-    // };
 
     return (
       <header

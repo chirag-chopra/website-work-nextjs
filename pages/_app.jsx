@@ -1,6 +1,6 @@
 import Head from "next/head";
 import "../index.scss";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import LoadingBar from "react-top-loading-bar";
 

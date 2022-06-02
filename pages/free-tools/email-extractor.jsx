@@ -17,20 +17,11 @@ const EmailExtractor = () => {
   const [extractedEmail, setExtractedEmail] = useState("");
 
   const getFinalEmail = (text) => {
-    console.log("TEST : ", rawData);
     const temp = text.match(
       /([a-zA-Z0-9.-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9._-]+)/gi
     );
-
-    const semiFinal = temp.filter(
-      (
-        (s) => (v) =>
-          s.has(v) || !s.add(v)
-      )(new Set())
-    );
-
-    const finalOutpt = semiFinal.toString().replaceAll(",", ",\n");
-    setExtractedEmail(finalOutpt);
+    const finalOutput = [...new Set(temp)].toString().replaceAll(",", ",\n");
+    setExtractedEmail(finalOutput);
   };
 
   return (
@@ -63,10 +54,7 @@ const EmailExtractor = () => {
               style={{ height: 100, width: "100%" }}
             />
             <button
-              onClick={() => {
-                // console.log("LION : ", rawData);
-                getFinalEmail(rawData);
-              }}
+              onClick={() => getFinalEmail(rawData)}
               type="submit"
               className="btn text-white mt-4 mb-4"
               style={{
