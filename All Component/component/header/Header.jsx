@@ -1,21 +1,37 @@
-import React, { Component } from "react";
+import { Component, useState } from "react";
 import Link from "next/link";
 import { FiX, FiMenu } from "react-icons/fi";
 
-// import "../../../public/assets"
 class Header extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      isOurProductActive: false,
+      isFreeToolsActive: false,
+      isApiServices: false,
+    };
     this.menuTrigger = this.menuTrigger.bind(this);
     this.CLoseMenuTrigger = this.CLoseMenuTrigger.bind(this);
     //  this.subMetuTrigger = this.subMetuTrigger.bind(this);
     if (typeof window !== "undefined") {
       // Client-side-only code
       window.addEventListener("load", function () {
-        console.log("All assets are loaded");
+        // console.log("All assets are loaded");
       });
     }
   }
+
+  triggerOurProducts = () => {
+    this.setState({ isOurProductActive: !this.state.isOurProductActive });
+  };
+
+  triggerIsFreeTools = () => {
+    this.setState({ isFreeToolsActive: !this.state.isFreeToolsActive });
+  };
+
+  triggerApiServices = () => {
+    this.setState({ isApiServices: !this.state.isApiServices });
+  };
 
   menuTrigger() {
     if (typeof window !== "undefined") {
@@ -34,7 +50,7 @@ class Header extends Component {
   render() {
     if (typeof window !== "undefined") {
       // Client-side-only code
-      var elements = document.querySelectorAll(".has-droupdown > a");
+      var elements = document.querySelectorAll(".has-droupdown > Link");
     }
     for (var i in elements) {
       if (elements.hasOwnProperty(i)) {
@@ -74,10 +90,6 @@ class Header extends Component {
       logoUrl = <img src="/assets/images/logo/logo.png" alt="Digital Agency" />;
     }
 
-    const signout = async (e) => {
-      e.preventDefault();
-    };
-
     return (
       <header
         className={`header-area formobile-menu header--transparent ${color}`}
@@ -85,60 +97,86 @@ class Header extends Component {
         <div className="header-wrapper" id="header-wrapper">
           <div className="header-left">
             <div className="logo">
-              <a href="/">{logoUrl}</a>
+              <Link href="/">
+                <a>{logoUrl}</a>
+              </Link>
             </div>
           </div>
           <div className="header-right">
             <nav className="mainmenunav d-lg-block">
               <ul className="mainmenu">
                 <li className="has-droupdown">
-                  <Link href="/">Home</Link>
-                  {/* <ul className="submenu">
-                                        <li><Link href="/main-demo">Main Demo</Link></li>
-                                        <li><Link href="/dark-main-demo">Main Demo Dark</Link></li>
-                                        <li><Link href="/creative-agency">Creative Agency</Link></li>
-                                        <li><Link href="/creative-landing">Creative One Page</Link></li>
-                                        <li><Link href="/creative-portfolio">Creative Portfolio</Link></li>
-                                        <li><Link href="/personal-portfolio">Personal Portfolio</Link></li>
-                                        <li><Link href="/portfolio-landing">Portfolio One Page</Link></li>
-                                        <li><Link href="/dark-portfolio-landing">Portfolio One Page 02</Link></li>
-                                        <li><Link href="/digital-agency">Digital Agency</Link></li>
-                                        <li><Link href="/startup">Startup</Link></li>
-                                        <li><Link href="/paralax">Paralax</Link></li>
-                                        <li><Link href="/portfolio-home">Minimal Portfolio</Link></li>
-                                        <li><Link href="/business">Business</Link></li>
-                                        <li><Link href="/home-particles">Home Particles</Link></li>
-                                        <li><Link href="/studio-agency">Studio Agency</Link></li>
-                                        <li><Link href="/designer-portfolio">Designer Portfolio</Link></li>
-                                        <li><Link href="/interactive-agency">Interactive Agency</Link></li>
-                                    </ul> */}
-                </li>
-                <li className="has-droupdown">
-                  <Link href="/api-services">Api Services</Link>
-                  <ul className="submenu">
+                  <Link href="">
+                    <a onClick={() => this.triggerApiServices()}>
+                      Api Services
+                    </a>
+                  </Link>
+                  <ul
+                    className={
+                      this.state.isApiServices == true
+                        ? "submenu active"
+                        : "submenu"
+                    }
+                  >
                     <li>
                       <Link href="#">Astrology API</Link>
                     </li>
                   </ul>
                 </li>
                 <li className="has-droupdown">
-                  <Link href="/our-products">Our Products</Link>
-                  <ul className="submenu">
+                  <Link href="">
+                    <a onClick={() => this.triggerOurProducts()}>
+                      Our Products
+                    </a>
+                  </Link>
+                  <ul
+                    className={
+                      this.state.isOurProductActive == true
+                        ? "submenu active"
+                        : "submenu"
+                    }
+                  >
                     <li>
-                      <Link href="#">Learn MLM</Link>
+                      <Link href="/our-products/learn-mlm">Learn MLM</Link>
                     </li>
                     <li>
-                      <Link href="#">GeoTaskie</Link>
+                      <Link href="/our-products/geotaskie">GeoTaskie</Link>
                     </li>
                     <li>
-                      <Link href="#">AstroSelf</Link>
+                      <Link href="/our-products/astroself">AstroSelf</Link>
                     </li>
                   </ul>
                 </li>
+                <li>
+                  <Link href="/blogs">Blogs</Link>
+                </li>
                 <li className="has-droupdown">
-                  <Link href="/all-blogs">
-                    <a>Blogs</a>
+                  <Link href="">
+                    <a onClick={() => this.triggerIsFreeTools()}>Free Tools</a>
                   </Link>
+                  <ul
+                    className={
+                      this.state.isFreeToolsActive == true
+                        ? "submenu active"
+                        : "submenu"
+                    }
+                  >
+                    <li>
+                      <Link href="/free-tools/email-extractor">
+                        Email Extractor
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/free-tools/privacy-policy-generator">
+                        Privacy Policy Generator
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/free-tools/terms-and-condition-generator">
+                        Terms & Conditions Generator
+                      </Link>
+                    </li>
+                  </ul>
                 </li>
                 <li>
                   <Link href="/about-us">About</Link>
