@@ -1,0 +1,35 @@
+{
+  "head": {
+    "titleTxt": "",
+    "titleImg": "",
+    "shortDescription": "",
+    "categories": ["", "", ""]
+  },
+  "body": [
+    {
+      "img": "",
+      "para": ""
+    },
+    {
+      "img": null,
+      "para": ""
+    }
+  ]
+}
+
+// validations on registration
+// JOI
+{
+  "fullName" : "",
+  "email" : "",
+  "password" : "",
+  "confirmPassword" : ""
+}
+
+// login
+{
+  "email" : "",
+  "password" : ""
+}
+
+
